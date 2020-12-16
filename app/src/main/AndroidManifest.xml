@@ -13,11 +13,10 @@
         android:theme="@style/Theme.DocApp">
 
         <activity android:name=".New_Feed_Doctor_Activity" />
-        <activity android:name=".FeedActivity">
+        <activity android:name=".doctorsSignupActivity" />
+        <activity android:name=".signupActivity">
 
         </activity>
-        <activity android:name=".doctorsSignupActivity" />
-        <activity android:name=".signupActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".IntroActivity">
             <intent-filter>

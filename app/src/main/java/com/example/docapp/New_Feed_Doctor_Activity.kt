@@ -23,7 +23,7 @@ class New_Feed_Doctor_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new__feed__doctor_)
         findViewById<ImageView>(R.id.img_bck_new).setOnClickListener {
-            val intent = Intent(this, FeedActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
         }
 
@@ -52,7 +52,7 @@ class New_Feed_Doctor_Activity : AppCompatActivity() {
             val feedRef=FirebaseFirestore.getInstance().collection("health_feeds")
             feedRef.add(health_feed(title,date_posted,description,subject))
             Toast.makeText(this, "You have successfully published, Doc", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, FeedActivity::class.java)
+            val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
 
         }
