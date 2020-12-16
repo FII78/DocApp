@@ -138,4 +138,10 @@
     <string name="notification">Notification</string>
     <string name="health_feed">Health feed</string>
     <string name="home">Home</string>
+    <string name="userLbl">Hello</string>
+    <string name="Answer">Answer </string>
+    <string name="kode">kode</string>
+    <string name="kategori">kategori</string>
+    <string name="queDesc">Question</string>
+    <string name="quesAsked"> asked at</string>
 </resources>

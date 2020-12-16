@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
         if(fragment != null ){
             val transaction = supportFragmentManager.beginTransaction()
             transaction.replace(R.id.fragment_container,fragment)
+            transaction.addToBackStack(null)
             transaction.commit()
         }
     }

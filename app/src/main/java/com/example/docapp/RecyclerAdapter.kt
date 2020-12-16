@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import androidx.recyclerview.widget.RecyclerView
 import com.example.docapp.R
+import com.example.docapp.fragments.QuestionFragment
 import com.example.docapp.models.Questions
 
 class RecyclerAdapter (options: FirestoreRecyclerOptions<Questions>)
@@ -26,14 +28,6 @@ class RecyclerAdapter (options: FirestoreRecyclerOptions<Questions>)
                 var position: Int = getAdapterPosition()
                 val context = itemView.context
             }
-//                val intent = Intent(context, DetailPertanyaan::class.java).apply {
-//                    putExtra("NUMBER", position)
-//                    putExtra("CODE", itemKode.text)
-//                    putExtra("CATEGORY", itemKategori.text)
-//                    putExtra("CONTENT", itemIsi.text)
-//                }
-            // context.startActivity(intent)
-
         }}
 
 
@@ -46,6 +40,14 @@ class RecyclerAdapter (options: FirestoreRecyclerOptions<Questions>)
         // TODO("Not yet implemented")
         holder.itemDesc.text=model.description
         holder.createdAtc.text= model.asked_at
+        holder.itemView.setOnClickListener(object:View.OnClickListener{
+            override fun onClick(v: View?) {
+                val activity = v!!.context as AppCompatActivity
+                val qFrag = QuestionFragment()
+                activity.supportFragmentManager.beginTransaction()
+                    .replace(R.id.fragment_container,qFrag).addToBackStack(null).commit()
+            }
+        })
     }
 
 }
