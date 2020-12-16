@@ -11,5 +11,8 @@
     <color name="pink">#f469a9</color>
     <color name="purple">#ba53de</color>
     <color name="blue">#cc2193b0</color>
+    <color name="colorPrimary">#009EFD</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
 
 </resources>

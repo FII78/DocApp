@@ -123,4 +123,19 @@
     <string name="publish">Publish</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="askQB">Ask free health question</string>
+    <string name="search_hint">Search  health issue, doctor,topic</string>
+    <string name="feeds">Health Feeds</string>
+    <string name="consult">Online Consults</string>
+    <string name="chatL">Messages</string>
+    <string name="question">Your question</string>
+    <string name="que">What is your question ?</string>
+    <string name="asqBtnLbl">Asq question</string>
+    <string name="helpedPplTxt">30000</string>
+    <string name="avaDocsTxt">1500</string>
+    <string name="questions">Questions</string>
+    <string name="profile">Profile</string>
+    <string name="notification">Notification</string>
+    <string name="health_feed">Health feed</string>
+    <string name="home">Home</string>
 </resources>
