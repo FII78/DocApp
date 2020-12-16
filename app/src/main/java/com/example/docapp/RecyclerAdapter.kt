@@ -28,7 +28,8 @@ class RecyclerAdapter (options: FirestoreRecyclerOptions<Questions>)
                 var position: Int = getAdapterPosition()
                 val context = itemView.context
             }
-        }}
+        }
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerAdapter.QuestionHolder {
