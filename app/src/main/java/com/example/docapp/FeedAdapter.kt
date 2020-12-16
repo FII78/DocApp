@@ -1,39 +1,46 @@
 package com.example.docapp
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.docapp.models.health_feed
 import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
-import com.google.firebase.firestore.DocumentSnapshot
 
 
-class FeedAdapter(options: FirestoreRecyclerOptions<health_feed>
-) : FirestoreRecyclerAdapter<health_feed, FeedAdapter.FeedHolder>(options) {
-  private var listener: OnItemClickListener? =null
+class FeedAdapter(options: FirestoreRecyclerOptions<health_feed> ) : FirestoreRecyclerAdapter<health_feed, FeedAdapter.FeedHolder>(options) {
 
 
-      inner class FeedHolder(itemView: View ) : RecyclerView.ViewHolder(itemView){
-        var title: TextView = itemView.findViewById(R.id.title)
-        var supporting_stc: TextView = itemView.findViewById(R.id.supp_text)
+    inner class FeedHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
+
+      {
+          var title: TextView = itemView.findViewById(R.id.title)
+          var supporting_stc: TextView = itemView.findViewById(R.id.supp_text)
           var description: TextView = itemView.findViewById(R.id.description_text_display)
 
-        //var image:ImageView
-        var date_posted: TextView = itemView.findViewById(R.id.date_posted)
+          //var image:ImageView
+          var date_posted: TextView = itemView.findViewById(R.id.date_posted)
 
-        init {
+
+
+      //  init {
             // image=itemView.findViewById(R.id.img_feed)
-            itemView.setOnClickListener {
-                val position = adapterPosition
-                if (position != RecyclerView.NO_POSITION && listener != null) {
-                    listener!!.onItemClick( position)
-                }
-            }
+
+
+//            itemView.setOnClickListener {
+//                val position = adapterPosition
+//                if (position != RecyclerView.NO_POSITION && listener != null) {
+//                    listener!!.onItemClick( position)
+//                }
+//            }
             //snapshots.getSnapshot(position),
-        }
+  //      }
 
 //          override fun onClick(v: View?) {
 //              TODO("Not yet implemented")
@@ -43,28 +50,35 @@ class FeedAdapter(options: FirestoreRecyclerOptions<health_feed>
       }
 
 
-    interface OnItemClickListener {
-
-
-        fun onItemClick( position: Int)
-        //documentSnapshot: DocumentSnapshot,
-    }
+//    internal interface OnActionListener {
+//        fun startActivity(position: Int)
+//    }
 //
-    fun setOnItemClickListener(listener: OnItemClickListener) {
-        this.listener
-    }
+//    fun setOnItemClickListener(listener: OnItemClickListener) {
+//        this.listener
+//    }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedAdapter.FeedHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.new_feed_card, parent, false)
         return  FeedHolder(view)
     }
 
-    override fun onBindViewHolder(holder: FeedAdapter.FeedHolder, position: Int, model: health_feed) {
+    override fun onBindViewHolder(holder: FeedHolder, position: Int, model: health_feed) {
         holder.title.text = model.title
         holder.supporting_stc.text = model.supporting_stc
         holder.date_posted.text = model.date_posted
         holder.description.text = model.description
-        // holder.image.setImageURI(model.image)
+//        var context = holder.itemView.context
+//
+//        holder.itemView.setOnClickListener {
+//            var feedId=snapshots.getSnapshot(position).id
+//            Toast.makeText(holder.itemView.context, feedId, Toast.LENGTH_SHORT).show()
+//            val i = Intent(context, LoginActivity::class.java)
+//            val extras = Bundle()
+//            extras.putString("EXTRA_FEED_ID",feedId )
+//            context.startActivity(i)
+//        }
+
     }
 
 }
