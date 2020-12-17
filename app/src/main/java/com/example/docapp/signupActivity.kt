@@ -43,10 +43,6 @@ class signupActivity : AppCompatActivity() {
 //    }
 private fun signup(email:String,password:String) {
 
-
-
-//        var email = findViewById(R.id.email_edittext_register).toString()
-//        email = email_edittext_register.getText().toString();
     if(email.trim().isNotEmpty() || email.trim().isNotEmpty())
     {
 
@@ -120,7 +116,7 @@ private fun signup(email:String,password:String) {
     }
     else
     {
-        Toast.makeText(this, "email and password is required", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "email and password are required", Toast.LENGTH_SHORT).show()
     }
 
 

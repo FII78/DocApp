@@ -138,7 +138,7 @@
             app:hintTextColor="@color/black"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
-
+            app:startIconDrawable="@drawable/user"
             app:startIconTint="@color/blue"
             app:endIconMode="clear_text"
             app:endIconTint="@color/blue"

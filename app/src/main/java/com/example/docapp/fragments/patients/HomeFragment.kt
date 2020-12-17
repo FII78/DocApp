@@ -7,9 +7,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
+import com.example.docapp.DocListFragment
 import com.example.docapp.R
 import com.example.docapp.UserInfo
+<<<<<<< HEAD:app/src/main/java/com/example/docapp/fragments/patients/HomeFragment.kt
 //import com.example.docapp.health_feedFragment
+=======
+import com.example.docapp.health_feedFragment
+>>>>>>> 30442ede5454578165ccb0cb35b9853ee9d7aef9:app/src/main/java/com/example/docapp/fragments/HomeFragment.kt
 import com.example.docapp.models.User
 //import com.example.docapp.patients.health_feedFragment
 import com.google.firebase.auth.FirebaseAuth
@@ -53,8 +58,13 @@ class HomeFragment : Fragment() {
         }
         view.feedsCard.setOnClickListener{
             Log.d("feeds", "Selected")
+<<<<<<< HEAD:app/src/main/java/com/example/docapp/fragments/patients/HomeFragment.kt
             useNmeLbl.text="445"
             val fraG = health_feedFragment()
+=======
+            useNmmeLbl.text="445"
+            val fraG = DocListFragment()
+>>>>>>> 30442ede5454578165ccb0cb35b9853ee9d7aef9:app/src/main/java/com/example/docapp/fragments/HomeFragment.kt
             replaceFragments(fraG)
         }
         view.consultsCard.setOnClickListener{

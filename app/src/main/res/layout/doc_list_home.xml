@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".health_feedFragment"
+    android:paddingTop="22dp"
+    android:background="@drawable/gr_1">
+
+        <ImageView
+            android:id="@+id/back_btn_feed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:src="@drawable/left_arrow"
+            android:backgroundTint="@color/blue"
+
+            android:contentDescription="TODO" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleViewdoc"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="33dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginLeft="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_marginRight="14dp"
+
+            />
+
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
