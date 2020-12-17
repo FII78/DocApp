@@ -1,7 +1,8 @@
-package com.example.docapp.fragments
+package com.example.docapp.fragments.patients
 
 import android.os.Build
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,12 +10,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.docapp.R
 import com.example.docapp.models.Questions
 import com.example.docapp.models.User
-import com.example.lastone.RecyclerAdapter
+import com.example.docapp.patients.RecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -24,7 +24,7 @@ import com.google.firebase.ktx.Firebase
 import kotlinx.android.synthetic.main.cardrecl.*
 import kotlinx.android.synthetic.main.fragment_ask_q.*
 import kotlinx.android.synthetic.main.fragment_ask_q.view.*
-import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_doc_qn_a.*
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -40,7 +40,7 @@ import java.time.format.FormatStyle
     val  query=dbs.collection("questions")
     val users = dbs.collection("users")
 
-class AskQFragment : Fragment() {
+class AskQFragment  : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
@@ -83,28 +83,39 @@ class AskQFragment : Fragment() {
         setupRecylerView()
     }
     @RequiresApi(Build.VERSION_CODES.O)
-    private fun senData(){
-         //Toast.makeText(getActivity(),"Registration Succes",Toast.LENGTH_LONG).show()
+    private fun senData() {
+        //Toast.makeText(getActivity(),"Registration Succes",Toast.LENGTH_LONG).show()
         var desc = descQ.text.toString().trim()
+        var tag = getTagUser.text.toString().trim()
         val current = LocalDateTime.now()
-        val formatter= DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
+        val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
         val askedAt = current.format(formatter)
 
-        if(desc.isNotEmpty()){
-            var model= Questions(desc,askedAt)
-            data.collection("questions")
+        if (TextUtils.isEmpty(desc)) {
+            descQ.error = "Please insert description for your question"
+        } else if (desc.length < 10) {
+            descQ.error = "Please insert more than 10 characters"
+        } else if (TextUtils.isEmpty(tag)) {
+            getTagUser.error = "Insert tag for your question"
+        } else if (tag.length < 3) {
+            getTagUser.error = "Insert more than 3 characters"
+        } else {
+            var model = Questions(desc, askedAt, tag)
+            dbs.collection("questions")
                 .add(model)
                 .addOnSuccessListener { documentReference ->
                     Log.d("TAG", "DocumentSnapshot added with ID: ${documentReference.id}")
                     descQ.text.clear()
-                    Toast.makeText(activity,"Question submited",Toast.LENGTH_LONG).show()
+                    getTagUser.text.clear()
+                    Toast.makeText(activity, "Question submitted", Toast.LENGTH_LONG).show()
                 }
                 .addOnFailureListener { e ->
                     Log.w("TAG", "Error adding document", e)
+                    Toast.makeText(activity, "$e", Toast.LENGTH_LONG).show()
                 }
         }
-
     }
+
     private fun setupRecylerView() {
         val queryies=query.orderBy("asked_at", Query.Direction.DESCENDING)
         val options: FirestoreRecyclerOptions<Questions> = FirestoreRecyclerOptions.Builder<Questions>().setQuery(queryies,Questions::class.java).build()
@@ -135,7 +146,7 @@ class AskQFragment : Fragment() {
               val user=document.toObject(User::class.java)!!
                 if(user.role == "doctor"){
                     Toast.makeText(activity,"Question submited",Toast.LENGTH_LONG).show()
-                        btnAnswer.toggleVisibility()
+                        //btnAnswer.toggleVisibility()
                 }
             }
 

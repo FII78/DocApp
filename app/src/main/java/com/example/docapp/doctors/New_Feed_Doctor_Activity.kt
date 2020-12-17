@@ -1,4 +1,4 @@
-package com.example.docapp
+package com.example.docapp.doctors
 
 import android.content.Intent
 import android.os.Build
@@ -7,10 +7,11 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.Toast
+import com.example.docapp.R
 import com.example.docapp.models.health_feed
+import com.example.docapp.patients.UserActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.FirebaseFirestore
-import com.google.firebase.ktx.Firebase
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
@@ -23,7 +24,7 @@ class New_Feed_Doctor_Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new__feed__doctor_)
         findViewById<ImageView>(R.id.img_bck_new).setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
         }
 
@@ -52,7 +53,7 @@ class New_Feed_Doctor_Activity : AppCompatActivity() {
             val feedRef=FirebaseFirestore.getInstance().collection("health_feeds")
             feedRef.add(health_feed(title,date_posted,description,subject))
             Toast.makeText(this, "You have successfully published, Doc", Toast.LENGTH_SHORT).show()
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, UserActivity::class.java)
             startActivity(intent)
 
         }

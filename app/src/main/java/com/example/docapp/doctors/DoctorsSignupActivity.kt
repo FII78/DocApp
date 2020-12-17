@@ -1,4 +1,4 @@
-package com.example.docapp
+package com.example.docapp.doctors
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,6 +6,8 @@ import android.widget.Button
 import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.docapp.LoginActivity
+import com.example.docapp.R
 import com.example.docapp.models.User
 import com.google.android.material.slider.Slider
 import com.google.android.material.textfield.TextInputLayout
@@ -36,10 +38,10 @@ class doctorsSignupActivity : AppCompatActivity() {
 
             rg.setOnCheckedChangeListener { group, checkedId ->
                 when(checkedId){
-                    R.id.male->
+                    R.id.male ->
                         sex="male"
                     // do operations specific to this selection
-                    R.id.female->
+                    R.id.female ->
                         sex="female"
                     // do operations specific to this selection
 

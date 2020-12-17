@@ -11,12 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DocApp">
-
-        <activity android:name=".New_Feed_Doctor_Activity" />
-        <activity android:name=".doctorsSignupActivity" />
-        <activity android:name=".signupActivity">
-
-        </activity>
+        <activity android:name=".doctors.DoctorActivity"></activity>
+        <activity android:name=".doctors.New_Feed_Doctor_Activity" />
+        <activity android:name=".doctors.doctorsSignupActivity" />
+        <activity android:name=".signupActivity"></activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".IntroActivity">
             <intent-filter>
@@ -25,7 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".patients.UserActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

@@ -1,4 +1,4 @@
-package com.example.docapp
+package com.example.docapp.fragments.patients
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,22 +7,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.docapp.R
 import com.example.docapp.models.health_feed
+import com.example.docapp.patients.FeedAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
-import java.util.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [health_feedFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class health_feedFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -52,15 +47,15 @@ class health_feedFragment : Fragment() {
 
         val fragmentView: View =
             inflater.inflate(R.layout.feed_home, container, false)
+        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
+        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
 
-
+        postAdapter = FeedAdapter(options)
         postRecyclerView = fragmentView.findViewById(R.id.recycleView)
         postRecyclerView.layoutManager = LinearLayoutManager(activity)
         postRecyclerView.setHasFixedSize(true)
         postRecyclerView.adapter = postAdapter
-        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
-        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
-        postAdapter = FeedAdapter(options)
+
         return fragmentView
 
     }

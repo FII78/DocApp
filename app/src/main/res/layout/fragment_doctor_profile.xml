@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.ProfileFragment">
+    android:background="#329D9C"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
 
+    tools:context=".fragments.DoctorProfileFragment">
+
+    <!-- TODO: Update blank fragment layout -->
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="500dp"
-        android:background="@color/colorPrimary"
+        android:background="#329D9C"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,138 +49,103 @@
             app:layout_constraintStart_toEndOf="@+id/docImg"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="246dp"
+            android:layout_height="59dp"
+            android:layout_marginTop="132dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.709"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="180dp"
-        android:background="@drawable/shaper"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="80dp"
+        android:background="@drawable/shape_board4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
 
         <TextView
             android:id="@+id/DocprofileEmail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/muli"
             android:text="@string/proEmail"
             android:textColor="#1E1D1D"
             android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/docExpVal" />
 
         <TextView
             android:id="@+id/DocproEmailVal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="84dp"
+            android:layout_width="100dp"
+            android:layout_height="17dp"
+            android:layout_marginTop="25dp"
+            android:text="lol"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.489"
+            app:layout_constraintHorizontal_bias="0.758"
             app:layout_constraintStart_toEndOf="@+id/DocprofileEmail"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/type" />
 
         <TextView
             android:id="@+id/DocproMobileLbl"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="25dp"
             android:fontFamily="@font/muli"
             android:text="@string/proMobLbl"
             android:textColor="#1E1D1D"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DocprofileEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/DocproEmailVal" />
 
         <TextView
             android:id="@+id/DocproMob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="25dp"
+            android:text="mo"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.299"
+            app:layout_constraintHorizontal_bias="0.323"
             app:layout_constraintStart_toEndOf="@+id/DocproMobileLbl"
             app:layout_constraintTop_toBottomOf="@+id/DocproEmailVal" />
 
         <TextView
-            android:id="@+id/DocbloodGLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/muli"
-            android:text="@string/bloodGTxtL"
-            android:textColor="#1E1D1D"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DocproMobileLbl" />
-
-        <TextView
-            android:id="@+id/docExpVal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.386"
-            app:layout_constraintStart_toEndOf="@+id/DocbloodGLbl"
-            app:layout_constraintTop_toBottomOf="@+id/DocproMob" />
-
-        <TextView
-            android:id="@+id/docheightLbl"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/muli"
-            android:text="@string/heightLblTxt"
-            android:textColor="#1E1D1D"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DocbloodGLbl" />
-
-        <TextView
             android:id="@+id/docproHeightVal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_width="1dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="32dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.491"
-            app:layout_constraintStart_toEndOf="@+id/docheightLbl"
             app:layout_constraintTop_toBottomOf="@+id/docExpVal" />
-
-        <TextView
-            android:id="@+id/docWeight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
-            android:layout_marginTop="28dp"
-            android:fontFamily="@font/muli"
-            android:text="@string/weightLblTxt"
-            android:textColor="#1E1D1D"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/docheightLbl" />
 
         <TextView
             android:id="@+id/docweightVal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="40dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.486"
-            app:layout_constraintStart_toEndOf="@+id/docWeight"
             app:layout_constraintTop_toBottomOf="@+id/docproHeightVal" />
 
         <Button
@@ -185,15 +153,63 @@
             style="@style/Widget.AppCompat.Button.Borderless.Colored"
             android:layout_width="128dp"
             android:layout_height="47dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginBottom="68dp"
             android:background="@drawable/gr_1"
             android:text="@string/btnOutLbl"
             android:textColor="@color/design_default_color_on_primary"
             android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.141"
+            app:layout_constraintHorizontal_bias="0.201"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/docExpVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="10 years exp"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.123"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/docWeight" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="56dp"
+            android:text="Sugeon"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.463"
+            app:layout_constraintStart_toEndOf="@+id/docExpVal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/docProAvailHours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/muli"
+            android:text="@string/available_hours"
+            android:textColor="#1E1D1D"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/DocproMobileLbl" />
+
+        <TextView
+            android:id="@+id/docAvlHVal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.305"
+            app:layout_constraintStart_toEndOf="@+id/docProAvailHours"
+            app:layout_constraintTop_toBottomOf="@+id/DocproMob" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

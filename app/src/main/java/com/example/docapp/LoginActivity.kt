@@ -7,7 +7,11 @@ import android.os.Bundle
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
+import com.example.docapp.doctors.DoctorActivity
+import com.example.docapp.fragments.patients.dbs
+//import com.example.docapp.fragments.dbs
 import com.example.docapp.models.User
+import com.example.docapp.patients.UserActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -61,15 +65,43 @@ class LoginActivity : AppCompatActivity() {
         auth.signInWithEmailAndPassword(email,password)
             .addOnCompleteListener { task->
                 if(task.isSuccessful){
-                    val intent=Intent(this, MainActivity::class.java)
-                    startActivity(intent)
-                    finish()
+//                    val currentUser=FirebaseAuth.getInstance().currentUser
+//                    if(currentUser.role == "doctor"){
+//                        val intent=Intent(this, DoctorActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
+//                    }else{
+//                        val intent=Intent(this, MainActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
+//                    }
+                        redirectUSer()
                 }
                 else
                 {
                     Toast.makeText(this, "Error Message"+task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+    private fun redirectUSer () {
+        // var user:User
+        dbs.collection("users")
+                .document(getCurrentUserId())
+                .get()
+                .addOnSuccessListener {
+                    document ->
+                    val user=document.toObject(User::class.java)!!
+                    if(user.role == "doctor"){
+                        val intent=Intent(this, DoctorActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }else{
+                        val intent=Intent(this, UserActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    }
+                }
+
     }
 
     private fun callSignUpFromSignUp() {

@@ -144,4 +144,26 @@
     <string name="kategori">kategori</string>
     <string name="queDesc">Question</string>
     <string name="quesAsked"> asked at</string>
+    <string name="proName">Your name</string>
+    <string name="proEmail">Email</string>
+    <string name="proEmailText">You Email</string>
+    <string name="proMobText" />
+    <string name="proMobTxt">Your number</string>
+    <string name="proMobLbl">Mobile number</string>
+    <string name="bloodGTxt" />
+    <string name="bloodGTxtL">Blood Group</string>
+    <string name="bloodGvalLbl">Your blood</string>
+    <string name="heightLblTxt">Height</string>
+    <string name="heightValTxt">Your height</string>
+    <string name="weightLblTxt">Weight</string>
+    <string name="weightValTxt">Your weight</string>
+    <string name="btnOutLbl">LOG OUT</string>
+    <string name="Expirence" />
+    <string name="explbl">Expirence</string>
+    <string name="available_hours">Available Hours</string>
+    <string name="getTagTxt">Tag</string>
+    <string name="your_response">Your Response</string>
+    <string name="your_responsehint">your response</string>
+    <string name="cancel">Cancel</string>
+    <string name="submit">Submit</string>
 </resources>

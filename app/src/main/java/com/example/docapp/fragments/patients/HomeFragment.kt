@@ -1,4 +1,4 @@
-package com.example.docapp.fragments
+package com.example.docapp.fragments.patients
 
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import com.example.docapp.R
 import com.example.docapp.UserInfo
+//import com.example.docapp.health_feedFragment
 import com.example.docapp.models.User
+//import com.example.docapp.patients.health_feedFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_home.*
@@ -45,26 +47,26 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         view.askCard.setOnClickListener{
             Log.d("ask", "Selected")
-            useNmmeLbl.text="445"
+            useNmeLbl.text="445"
             val fraG = AskQFragment()
             replaceFragments(fraG)
         }
         view.feedsCard.setOnClickListener{
             Log.d("feeds", "Selected")
-            useNmmeLbl.text="445"
-            val fraG = AskQFragment()
+            useNmeLbl.text="445"
+            val fraG = health_feedFragment()
             replaceFragments(fraG)
         }
         view.consultsCard.setOnClickListener{
             Log.d("consult", "Selected")
-            useNmmeLbl.text="445"
+            useNmeLbl.text="445"
             val fraG = AskQFragment()
             replaceFragments(fraG)
         }
 
         view.msgCard.setOnClickListener{
             Log.d("messages", "Selected")
-            useNmmeLbl.text="445"
+            useNmeLbl.text="445"
             val fraG = AskQFragment()
             replaceFragments(fraG)
         }
@@ -108,7 +110,7 @@ class HomeFragment : Fragment() {
             .addOnSuccessListener {
                     document ->
                 val  user=document.toObject(User::class.java)!!
-                useNmmeLbl.text="Hi  ${user.fullName} welcome"
+                useNmeLbl.text="Hello  ${user.fullName} welcome"
                 ///if activity = feed and role = doc->
                 ///else normal news feed
 
