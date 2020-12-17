@@ -201,7 +201,7 @@
             android:textColor="@color/white" />
 
         <Button
-            android:id="@+id/login_btn"
+            android:id="@+id/login_btnReg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"

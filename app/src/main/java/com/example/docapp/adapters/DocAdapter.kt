@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.docapp.FeedAdapter
+import com.example.docapp.adapters.FeedAdapter
 import com.example.docapp.R
 import com.example.docapp.adapters.DocAdapter.DocHolder
 import com.example.docapp.models.User
@@ -42,7 +42,7 @@ class DocAdapter (options: FirestoreRecyclerOptions<User>) : FirestoreRecyclerAd
 //    }
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DocHolder {
-            val view = LayoutInflater.from(parent.context).inflate(R.layout.feed_card_doctor, parent, false)
+            val view = LayoutInflater.from(parent.context).inflate(R.layout.doc_list_card, parent, false)
             return DocHolder(view)
         }
 

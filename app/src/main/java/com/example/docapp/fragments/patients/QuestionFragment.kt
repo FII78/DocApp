@@ -9,8 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.example.docapp.R
 import com.example.docapp.models.Questions
-import com.example.docapp.models.User
-import com.example.docapp.patients.RecyclerAdapter
+import com.example.docapp.adapters.RecyclerAdapter
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.fragment_question.*
 
@@ -24,7 +23,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [QuestionFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class QuestionFragment : Fragment(),RecyclerAdapter.Callback {
+class QuestionFragment : Fragment(), RecyclerAdapter.Callback {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
