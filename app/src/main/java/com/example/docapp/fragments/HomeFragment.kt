@@ -7,8 +7,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
+import com.example.docapp.DocListFragment
 import com.example.docapp.R
 import com.example.docapp.UserInfo
+import com.example.docapp.health_feedFragment
 import com.example.docapp.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -52,7 +54,7 @@ class HomeFragment : Fragment() {
         view.feedsCard.setOnClickListener{
             Log.d("feeds", "Selected")
             useNmmeLbl.text="445"
-            val fraG = AskQFragment()
+            val fraG = DocListFragment()
             replaceFragments(fraG)
         }
         view.consultsCard.setOnClickListener{

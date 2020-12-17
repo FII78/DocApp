@@ -3,8 +3,6 @@ package com.example.docapp
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import android.widget.RadioButton
-import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.docapp.models.User
@@ -44,10 +42,6 @@ class signupActivity : AppCompatActivity() {
 //    }
 private fun signup(email:String,password:String) {
 
-
-
-//        var email = findViewById(R.id.email_edittext_register).toString()
-//        email = email_edittext_register.getText().toString();
     if(email.trim().isNotEmpty() || email.trim().isNotEmpty())
     {
 
@@ -121,7 +115,7 @@ private fun signup(email:String,password:String) {
     }
     else
     {
-        Toast.makeText(this, "email and password is required", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, "email and password are required", Toast.LENGTH_SHORT).show()
     }
 
 

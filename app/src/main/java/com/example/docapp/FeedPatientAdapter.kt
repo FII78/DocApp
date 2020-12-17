@@ -14,7 +14,7 @@ import com.firebase.ui.firestore.FirestoreRecyclerAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 
 
-class FeedAdapter(options: FirestoreRecyclerOptions<health_feed> ) : FirestoreRecyclerAdapter<health_feed, FeedAdapter.FeedHolder>(options) {
+class FeedPatientAdapter(options: FirestoreRecyclerOptions<health_feed> ) : FirestoreRecyclerAdapter<health_feed, FeedPatientAdapter.FeedHolder>(options) {
 
 
     inner class FeedHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
@@ -59,7 +59,7 @@ class FeedAdapter(options: FirestoreRecyclerOptions<health_feed> ) : FirestoreRe
 //    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FeedHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.feed_card_doctor, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.feed_card_patient, parent, false)
         return  FeedHolder(view)
     }
 

@@ -26,25 +26,61 @@ class doctorsSignupActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
 
         findViewById<Button>(R.id.doc_reg_btn).setOnClickListener {
-            val hoursperweek=findViewById<Slider>(R.id.slider_hour).value.toString()
+   //         val hoursperweekSlider=findViewById<Slider>(R.id.slider_hour)
 //            val slider: Slider = view.findViewById(android.R.id.slider)
 //            slider.addOnSliderTouchListener(touchListener)
-            val experience=findViewById<Slider>(R.id.slider_Loe).toString()
-            val specialization = findViewById<TextInputLayout>(R.id.Specialization).editText!!.text.toString()
-            var sex =""
-            val rg = findViewById<RadioGroup>(R.id.sex)
 
-            rg.setOnCheckedChangeListener { group, checkedId ->
-                when(checkedId){
-                    R.id.male->
-                        sex="male"
-                    // do operations specific to this selection
-                    R.id.female->
-                        sex="female"
-                    // do operations specific to this selection
 
-                }
+         //   var experienceSlider=findViewById<Slider>(R.id.slider_Loe)
+            var specialization = findViewById<TextInputLayout>(R.id.Specialization).editText!!.text.toString()
+            var hoursperweek = findViewById<TextInputLayout>(R.id.slider_hour).editText!!.text.toString()
+
+            var experience = findViewById<TextInputLayout>(R.id.slider_Loe).editText!!.text.toString()
+            //var hoursperweek:String=""
+//            hoursperweekSlider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+//                override fun onStartTrackingTouch(slider: Slider) {
+//                    // Responds to when slider's touch event is being started
+//
+//                    hoursperweek=  slider.valueTo.toString()
+//                }
+//
+//                override fun onStopTrackingTouch(slider: Slider) {
+//                    hoursperweek=  slider.valueTo.toString()
+//                }
+//            })
+//            experienceSlider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
+//                override fun onStartTrackingTouch(slider: Slider) {
+//                    // Responds to when slider's touch event is being started
+//                    experience+= slider.valueTo.toString()
+//                }
+//
+//                override fun onStopTrackingTouch(slider: Slider) {
+//                    experience+= slider.valueTo.toString()
+//                }
+//
+//            })
+            var text: String = ""
+
+            val radioGroup = findViewById<RadioGroup>(R.id.sex)
+            radioGroup.setOnCheckedChangeListener { group, checkedId ->
+                Toast.makeText(this, checkedId, Toast.LENGTH_SHORT).show()
+                text = if (R.id.male == checkedId) "male" else "female"
+
             }
+            var sex =text
+//            val rg = findViewById<RadioGroup>(R.id.sex)
+//
+//            rg.setOnCheckedChangeListener { group, checkedId ->
+//                when(checkedId){
+//                    R.id.male->
+//                        sex="male"
+//                    // do operations specific to this selection
+//                    R.id.female->
+//                        sex="female"
+//                    // do operations specific to this selection
+//
+//                }
+//            }
             signup(specialization,hoursperweek,experience,sex)
         }
     }
