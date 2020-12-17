@@ -33,7 +33,8 @@ class RecyclerAdapter(options: FirestoreRecyclerOptions<Questions>)
                 val context = itemView.context
                 Log.e("taag","$position")
             }
-        }}
+        }
+    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionHolder {

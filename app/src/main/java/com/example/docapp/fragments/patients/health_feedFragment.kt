@@ -1,5 +1,6 @@
 package com.example.docapp.fragments.patients
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,27 +19,20 @@ import com.google.firebase.firestore.Query
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
+=======
+
+>>>>>>> 244eb96bf63e266a6df39927d518e052a79bcf9b:app/src/main/java/com/example/docapp/health_feedFragment.kt
 class health_feedFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
     lateinit var postRecyclerView: RecyclerView
     lateinit var postAdapter: FeedAdapter
+    lateinit var postList: List<health_feed>
 
-    lateinit var firebaseDatabase: FirebaseFirestore
-  //  var databaseReference: DataBaseRef? = null
-  lateinit var postList: List<health_feed>
-    // Access a Cloud Firestore instance from your Activity
-    var db=FirebaseFirestore.getInstance()
+    private var db=FirebaseFirestore.getInstance()
     val  query=db.collection("health_feeds")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
         db = FirebaseFirestore.getInstance()
     }
 
@@ -50,35 +44,23 @@ class health_feedFragment : Fragment() {
         val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
         val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
 
-        postAdapter = FeedAdapter(options)
         postRecyclerView = fragmentView.findViewById(R.id.recycleView)
         postRecyclerView.layoutManager = LinearLayoutManager(activity)
         postRecyclerView.setHasFixedSize(true)
         postRecyclerView.adapter = postAdapter
+        val fab: View = fragmentView.findViewById(R.id.floating_action_button)
+        fab.setOnClickListener { view ->
+            val intent = Intent(activity, New_Feed_Doctor_Activity::class.java)
+            startActivity(intent)
+        }
 
+        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
+        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
+        postAdapter = FeedAdapter(options)
         return fragmentView
 
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment health_feedFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-                health_feedFragment().apply {
-                    arguments = Bundle().apply {
-                        putString(ARG_PARAM1, param1)
-                        putString(ARG_PARAM2, param2)
-                    }
-                }
-    }
 
     override fun onStart() {
         super.onStart()
