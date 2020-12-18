@@ -7,9 +7,11 @@ import android.os.Handler
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 
 class IntroActivity : AppCompatActivity() {
-
+var firebaseUser:FirebaseUser?=null
     lateinit var logo:ImageView
    // lateinit var appName:ImageView
     lateinit var splashImg:ImageView
@@ -45,6 +47,17 @@ class IntroActivity : AppCompatActivity() {
 
 
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        firebaseUser=FirebaseAuth.getInstance().currentUser
+        if(firebaseUser!=null)
+        {
+            val  intent=Intent(this@IntroActivity,IntroActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
 //    private fun animate(){

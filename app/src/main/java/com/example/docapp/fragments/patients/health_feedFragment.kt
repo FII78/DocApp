@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.docapp.R
+import com.example.docapp.doctors.New_Feed_Doctor_Activity
 import com.example.docapp.models.health_feed
 import com.example.docapp.patients.FeedAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
@@ -19,17 +20,15 @@ import com.google.firebase.firestore.Query
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-=======
 
->>>>>>> 244eb96bf63e266a6df39927d518e052a79bcf9b:app/src/main/java/com/example/docapp/health_feedFragment.kt
 class health_feedFragment : Fragment() {
 
     lateinit var postRecyclerView: RecyclerView
     lateinit var postAdapter: FeedAdapter
     lateinit var postList: List<health_feed>
 
-    private var db=FirebaseFirestore.getInstance()
-    val  query=db.collection("health_feeds")
+    private var db = FirebaseFirestore.getInstance()
+    val query = db.collection("health_feeds")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,9 +39,9 @@ class health_feedFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val fragmentView: View =
-            inflater.inflate(R.layout.feed_home, container, false)
-        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
-        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
+                inflater.inflate(R.layout.feed_home, container, false)
+        val queries = query.orderBy("date_posted", Query.Direction.DESCENDING)
+        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries, health_feed::class.java).build()
 
         postRecyclerView = fragmentView.findViewById(R.id.recycleView)
         postRecyclerView.layoutManager = LinearLayoutManager(activity)
@@ -54,8 +53,8 @@ class health_feedFragment : Fragment() {
             startActivity(intent)
         }
 
-        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
-        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
+//        val queries = query.orderBy("date_posted", Query.Direction.DESCENDING)
+//        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries, health_feed::class.java).build()
         postAdapter = FeedAdapter(options)
         return fragmentView
 

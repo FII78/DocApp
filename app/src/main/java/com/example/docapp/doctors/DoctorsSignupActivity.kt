@@ -24,38 +24,37 @@ class doctorsSignupActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctors_signup)
 
-        firestore= FirebaseFirestore.getInstance()
+        firestore = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
 
         findViewById<Button>(R.id.doc_reg_btn).setOnClickListener {
-   //         val hoursperweekSlider=findViewById<Slider>(R.id.slider_hour)
+            //         val hoursperweekSlider=findViewById<Slider>(R.id.slider_hour)
 //            val slider: Slider = view.findViewById(android.R.id.slider)
 //            slider.addOnSliderTouchListener(touchListener)
-<<<<<<< HEAD:app/src/main/java/com/example/docapp/doctors/DoctorsSignupActivity.kt
-            val experience=findViewById<Slider>(R.id.slider_Loe).toString()
+
+            val experience = findViewById<Slider>(R.id.slider_Loe).toString()
             val specialization = findViewById<TextInputLayout>(R.id.Specialization).editText!!.text.toString()
-            var sex =""
+            var sex = ""
             val rg = findViewById<RadioGroup>(R.id.sex)
 
             rg.setOnCheckedChangeListener { group, checkedId ->
-                when(checkedId){
+                when (checkedId) {
                     R.id.male ->
-                        sex="male"
+                        sex = "male"
                     // do operations specific to this selection
                     R.id.female ->
-                        sex="female"
+                        sex = "female"
                     // do operations specific to this selection
 
                 }
-=======
 
 
-         //   var experienceSlider=findViewById<Slider>(R.id.slider_Loe)
-            var specialization = findViewById<TextInputLayout>(R.id.Specialization).editText!!.text.toString()
-            var hoursperweek = findViewById<TextInputLayout>(R.id.slider_hour).editText!!.text.toString()
+                //   var experienceSlider=findViewById<Slider>(R.id.slider_Loe)
+                var specialization = findViewById<TextInputLayout>(R.id.Specialization).editText!!.text.toString()
+                var hoursperweek = findViewById<TextInputLayout>(R.id.slider_hour).editText!!.text.toString()
 
-            var experience = findViewById<TextInputLayout>(R.id.slider_Loe).editText!!.text.toString()
-            //var hoursperweek:String=""
+                var experience = findViewById<TextInputLayout>(R.id.slider_Loe).editText!!.text.toString()
+                //var hoursperweek:String=""
 //            hoursperweekSlider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
 //                override fun onStartTrackingTouch(slider: Slider) {
 //                    // Responds to when slider's touch event is being started
@@ -78,16 +77,15 @@ class doctorsSignupActivity : AppCompatActivity() {
 //                }
 //
 //            })
-            var text: String = ""
+                var text: String = ""
 
-            val radioGroup = findViewById<RadioGroup>(R.id.sex)
-            radioGroup.setOnCheckedChangeListener { group, checkedId ->
-                Toast.makeText(this, checkedId, Toast.LENGTH_SHORT).show()
-                text = if (R.id.male == checkedId) "male" else "female"
+                val radioGroup = findViewById<RadioGroup>(R.id.sex)
+                radioGroup.setOnCheckedChangeListener { group, checkedId ->
+                    Toast.makeText(this, checkedId, Toast.LENGTH_SHORT).show()
+                    text = if (R.id.male == checkedId) "male" else "female"
 
->>>>>>> 30442ede5454578165ccb0cb35b9853ee9d7aef9:app/src/main/java/com/example/docapp/doctorsSignupActivity.kt
-            }
-            var sex =text
+                }
+                var sex = text
 //            val rg = findViewById<RadioGroup>(R.id.sex)
 //
 //            rg.setOnCheckedChangeListener { group, checkedId ->
@@ -101,7 +99,8 @@ class doctorsSignupActivity : AppCompatActivity() {
 //
 //                }
 //            }
-            signup(specialization,hoursperweek,experience,sex)
+                signup(specialization, hoursperweek, experience, sex)
+            }
         }
     }
     private fun signup(specialization:String,hoursperweek:String,experience:String,sex:String) {
