@@ -15,5 +15,6 @@
     <color name="colorPrimary">#009EFD</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="home_bg">#3BF8F5F5</color>
 
 </resources>

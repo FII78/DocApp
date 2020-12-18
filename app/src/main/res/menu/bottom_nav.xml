@@ -13,10 +13,10 @@
         android:icon="@drawable/ic_ans"
         />
 
-    <item android:id="@+id/minotif"
-        android:title="@string/notification"
-        android:icon="@drawable/ic_notifications"
-        />
+    <item
+        android:id="@+id/minotif"
+        android:icon="@drawable/doctors"
+        android:title="@string/doctors" />
     <item android:id="@+id/miProfile"
         android:title="@string/profile"
         android:icon="@drawable/ic_account"

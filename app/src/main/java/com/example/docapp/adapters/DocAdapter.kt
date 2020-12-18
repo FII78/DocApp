@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-
+import com.example.docapp.adapters.FeedAdapter
 import com.example.docapp.R
 import com.example.docapp.adapters.DocAdapter.DocHolder
 import com.example.docapp.models.User

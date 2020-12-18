@@ -14,6 +14,7 @@ import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import kotlinx.android.synthetic.main.activity_doctors_signup.*
 
 class doctorsSignupActivity : AppCompatActivity() {
 
@@ -26,6 +27,9 @@ class doctorsSignupActivity : AppCompatActivity() {
 
         firestore = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
+        login_btn_docS.setOnClickListener{
+            callLoginSignUp()
+        }
 
         findViewById<Button>(R.id.doc_reg_btn).setOnClickListener {
             //         val hoursperweekSlider=findViewById<Slider>(R.id.slider_hour)
@@ -37,6 +41,7 @@ class doctorsSignupActivity : AppCompatActivity() {
             var sex = ""
             val rg = findViewById<RadioGroup>(R.id.sex)
 
+
             rg.setOnCheckedChangeListener { group, checkedId ->
                 when (checkedId) {
                     R.id.male ->
@@ -47,6 +52,7 @@ class doctorsSignupActivity : AppCompatActivity() {
                     // do operations specific to this selection
 
                 }
+//=======
 
 
                 //   var experienceSlider=findViewById<Slider>(R.id.slider_Loe)
@@ -101,48 +107,47 @@ class doctorsSignupActivity : AppCompatActivity() {
 //            }
                 signup(specialization, hoursperweek, experience, sex)
             }
+        }}
+        private fun signup(specialization: String, hoursperweek: String, experience: String, sex: String) {
+
+            val intent = intent
+            val extras = intent.extras
+            val username = extras!!.getString("EXTRA_USERNAME").toString()
+            val userid = extras.getString("EXTRA_USER_ID").toString()
+            val fullname = extras.getString("EXTRA_FULL_NAME").toString()
+            val email = extras.getString("EXTRA_EMAIL").toString()
+            val role = extras.getString("EXTRA_ROLE").toString()
+
+            val user = User(
+                    userid,
+                    fullname,
+                    username,
+                    email,
+                    role,
+                    sex,
+                    experience,
+                    specialization,
+                    hoursperweek
+            )
+            firestore.collection("users")
+                    .document(user.id)
+                    .set(user, SetOptions.merge())
+                    .addOnSuccessListener {
+                        Toast.makeText(this@doctorsSignupActivity, "Registration successful! Please Login!", Toast.LENGTH_LONG).show()
+                        callLoginSignUp()
+
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this@doctorsSignupActivity, "Registration failed", Toast.LENGTH_LONG).show()
+                    }
+        }
+
+        private fun callLoginSignUp() {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
         }
     }
-    private fun signup(specialization:String,hoursperweek:String,experience:String,sex:String) {
-
-                        val intent = intent
-                        val extras = intent.extras
-                        val username = extras!!.getString("EXTRA_USERNAME").toString()
-                        val userid = extras.getString("EXTRA_USER_ID").toString()
-                        val fullname = extras.getString("EXTRA_FULL_NAME").toString()
-                        val email = extras.getString("EXTRA_EMAIL").toString()
-                        val role = extras.getString("EXTRA_ROLE").toString()
-
-                            val user = User(
-                                userid,
-                                fullname,
-                                username,
-                                email,
-                                role,
-                                sex,
-                                experience,
-                                specialization,
-                                hoursperweek
-                            )
-                            firestore.collection("users")
-                                .document(user.id)
-                                .set(user, SetOptions.merge())
-                                .addOnSuccessListener {
-                                    Toast.makeText(this@doctorsSignupActivity,"Registration successful! Please Login!", Toast.LENGTH_LONG).show()
-                                    callLoginSignUp()
-
-                                }
-                                .addOnFailureListener{
-                                    Toast.makeText(this@doctorsSignupActivity,"Registration failed", Toast.LENGTH_LONG).show()
-                                }
-                        }
-
-                    private fun callLoginSignUp() {
-                        val intent = Intent(this, LoginActivity::class.java)
-                        startActivity(intent)
-                        finish()
-                    }
-                    }
 
 
 

@@ -1,6 +1,5 @@
-package com.example.docapp
+package com.example.docapp.fragments
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +7,14 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.docapp.R
+import com.example.docapp.adapters.FeedAdapter
 import com.example.docapp.models.health_feed
 import com.example.docapp.patients.FeedAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import kotlinx.android.synthetic.main.feed_home_patient.*
 
 
 class patient_health_feedFragment : Fragment() {
@@ -35,18 +37,28 @@ class patient_health_feedFragment : Fragment() {
         val fragmentView: View =
             inflater.inflate(R.layout.feed_home_patient, container, false)
 
-        postRecyclerView = fragmentView.findViewById(R.id.recycleView_patient_feed)
-        postRecyclerView.layoutManager = LinearLayoutManager(activity)
-        postRecyclerView.setHasFixedSize(true)
-        postRecyclerView.adapter = postAdapter
 
-        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
-        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
-        postAdapter = FeedAdapter(options)
         return fragmentView
 
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        setRecyclerView()
+    }
+
+    private  fun setRecyclerView(){
+        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
+        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
+
+        postRecyclerView = recycleView_patient_feed
+        postRecyclerView.layoutManager = LinearLayoutManager(activity)
+        postRecyclerView.setHasFixedSize(true)
+        postAdapter = FeedAdapter(options)
+        postRecyclerView.adapter = postAdapter
+
+
+    }
 
     override fun onStart() {
         super.onStart()

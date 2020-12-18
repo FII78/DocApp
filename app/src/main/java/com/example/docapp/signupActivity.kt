@@ -12,6 +12,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
+import kotlinx.android.synthetic.main.activity_signup.*
 import java.util.*
 
 
@@ -30,6 +31,9 @@ class signupActivity : AppCompatActivity() {
             val email = findViewById<TextInputLayout>(R.id.Email).editText!!.text.toString()
             val password = findViewById<TextInputLayout>(R.id.password).editText!!.text.toString()
             signup(email,password)
+        }
+        login_btnReg.setOnClickListener{
+            callLoginSignUp()
         }
 //        login.setOnClickListener(){
 //            callLoginFromSignUp()
