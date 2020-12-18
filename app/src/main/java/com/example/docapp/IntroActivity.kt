@@ -49,16 +49,16 @@ var firebaseUser:FirebaseUser?=null
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        firebaseUser=FirebaseAuth.getInstance().currentUser
-        if(firebaseUser!=null)
-        {
-            val  intent=Intent(this@IntroActivity,IntroActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-    }
+//    override fun onStart() {
+//        super.onStart()
+//        firebaseUser=FirebaseAuth.getInstance().currentUser
+//        if(firebaseUser!=null)
+//        {
+//            val  intent=Intent(this@IntroActivity,IntroActivity::class.java)
+//            startActivity(intent)
+//            finish()
+//        }
+//    }
 
 //    private fun animate(){
 //        splashImg.animate().translationY(-1600F).setDuration(1000).startDelay = 4000
