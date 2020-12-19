@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
@@ -74,9 +75,12 @@ class LoginActivity : AppCompatActivity() {
             passLog.error = "Password is required !!"
         }
         else {
+            progress.visibility = View.VISIBLE
             auth.signInWithEmailAndPassword(email, password)
                     .addOnCompleteListener { task ->
+
                         if (task.isSuccessful) {
+                            progress.visibility = View.GONE
                             redirectUSer()}
                          else {
                             Toast.makeText(this, "Error Message" + task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
