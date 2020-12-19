@@ -74,9 +74,9 @@ class DocAdapter2(
         }
         else {
             holder.name.text = user!!.fullName
-            holder.experience.text = "N\\A"
-            holder.hours_avail.text = "N\\A"
-            holder.specialization.text = "N\\A"
+            holder.experience.text = "Experiance: N\\A"
+            holder.hours_avail.text = "Available hrs per week: N\\A"
+            holder.specialization.text = "Specialized in: N\\A"
             holder.itemView.setOnClickListener {
                 val options = arrayOf<CharSequence>("Talk to them", "Visit Profile")
                 val builder: AlertDialog.Builder = AlertDialog.Builder(mContext)
