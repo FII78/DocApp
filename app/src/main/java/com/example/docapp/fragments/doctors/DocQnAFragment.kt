@@ -10,9 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.docapp.R
 import com.example.docapp.adapters.QnAdapterDoc
+import com.example.docapp.doctors.AnswerDialog
+import com.example.docapp.fragments.patients.QuestionFragment
 import com.example.docapp.models.Questions
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
@@ -34,7 +38,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [DocQnAFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class DocQnAFragment : Fragment() {
+class DocQnAFragment : Fragment(),QnAdapterDoc.Callback {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -94,6 +98,7 @@ class DocQnAFragment : Fragment() {
             Questions::class.java).build()
 
         adapter = QnAdapterDoc(options)
+        adapter.setCallback(this)
         //val recyclerview=findViewById<RecyclerView>(R.id.recycleView)
         val recyclerview = recycleDocView
         recyclerview.setHasFixedSize(true)
@@ -118,7 +123,7 @@ class DocQnAFragment : Fragment() {
         } else if (tag.length < 3) {
             getTag.error = "Insert more than 3 characters"
         } else {
-            var model = Questions(desc, askedAt, tag)
+            var model = Questions("",desc, askedAt, tag, arrayListOf())
             dbs.collection("questions")
                 .add(model)
                 .addOnSuccessListener { documentReference ->
@@ -146,5 +151,24 @@ class DocQnAFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         adapter.stopListening()
+    }
+
+    override fun onCardClicked(question: Questions) {
+//        val qFrag = QuestionFragment.newInstance(question)
+//        var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
+//        val transaction = fragmentManager.beginTransaction()
+//        transaction.replace(R.id.fragment_container_doc,qFrag)
+//        transaction.addToBackStack(null)
+//        transaction.commit()
+    }
+
+    override fun onBtnClicked(question: Questions) {
+        TODO("Not yet implemented")
+        val qFrag = AnswerQFragment.newInstance(question)
+        var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container_doc,qFrag)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }

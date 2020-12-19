@@ -18,16 +18,19 @@ class RecyclerAdapter(options: FirestoreRecyclerOptions<Questions>)
     :FirestoreRecyclerAdapter<Questions, RecyclerAdapter.QuestionHolder>(options) {
 
     lateinit var mCallback : Callback
+    //,val listener:(Questions)->Unit
+   // val items:List<Questions> = Firestore
     inner class QuestionHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
         var itemDesc: TextView
         var createdAtc: TextView
         var tag : TextView
+        var numAns : TextView
         init {
             itemDesc = itemView.findViewById(R.id.descC)
             createdAtc = itemView.findViewById(R.id.asked_at)
             tag= itemView.findViewById(R.id.getTagUserVal)
-
+            numAns = itemView.findViewById(R.id.numAnsP)
             itemView.setOnClickListener {
                 var position: Int = getAdapterPosition()
                 val context = itemView.context
@@ -47,14 +50,21 @@ class RecyclerAdapter(options: FirestoreRecyclerOptions<Questions>)
 
         holder.itemDesc.text=model.description
         holder.createdAtc.text= model.asked_at
-        holder.tag.text = model.tag
-        holder.itemView.setOnClickListener(object : View.OnClickListener {
+        holder.tag.text = model.tag.capitalize()
+        holder.numAns.text = "${ model.answers.size } answers"
+//        holder.itemView.setOnClickListener(object : View.OnClickListener {
+//            override fun onClick(v: View?) {
+//
+//                val activity = v!!.context as AppCompatActivity
+//                val qFrag = QuestionFragment()
+//                activity.supportFragmentManager.beginTransaction()
+//                    .replace(R.id.fragment_container, qFrag).addToBackStack(null).commit()
+//            }
+//        })
+        holder.itemView.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
-
-                val activity = v!!.context as AppCompatActivity
-                val qFrag = QuestionFragment()
-                activity.supportFragmentManager.beginTransaction()
-                    .replace(R.id.fragment_container, qFrag).addToBackStack(null).commit()
+               // setCallback()
+                mCallback.onCardClicked(model)
             }
         })
     }

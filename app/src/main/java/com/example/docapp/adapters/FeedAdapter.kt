@@ -20,6 +20,7 @@ class FeedAdapter(options: FirestoreRecyclerOptions<health_feed> ) : FirestoreRe
           var title: TextView = itemView.findViewById(R.id.title)
           var supporting_stc: TextView = itemView.findViewById(R.id.supp_text)
           var description: TextView = itemView.findViewById(R.id.description_text_display)
+          var postedBy : TextView = itemView.findViewById(R.id.postedBy)
 
           //var image:ImageView
           var date_posted: TextView = itemView.findViewById(R.id.date_posted)
@@ -65,6 +66,7 @@ class FeedAdapter(options: FirestoreRecyclerOptions<health_feed> ) : FirestoreRe
         holder.supporting_stc.text = model.supporting_stc
         holder.date_posted.text = model.date_posted
         holder.description.text = model.description
+        holder.postedBy.text = "Posted by - ${model.feedBy}"
 //        var context = holder.itemView.context
 //
 //        holder.itemView.setOnClickListener {

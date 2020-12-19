@@ -7,7 +7,7 @@
         />
     <item android:id="@+id/miQues"
         android:title="@string/questions"
-        android:icon="@drawable/ic_baseline_question_answer_24"/>
+        android:icon="@drawable/ic_nfo"/>
     <item android:id="@+id/miFeed"
         android:title="@string/health_feed"
         android:icon="@drawable/ic_ans"
@@ -21,4 +21,5 @@
         android:title="@string/profile"
         android:icon="@drawable/ic_account"
         />
+
 </menu>

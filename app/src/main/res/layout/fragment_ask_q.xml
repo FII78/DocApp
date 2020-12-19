@@ -75,9 +75,9 @@
 
             <Button
                 android:id="@+id/asqBtn"
-                android:layout_width="match_parent"
+                android:layout_width="295dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/bg_btn"
+                android:background="@drawable/grad"
                 android:text="@string/asqBtnLbl"
                 android:textColor="#FBFBFB" />
         </LinearLayout>

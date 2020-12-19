@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentActivity
 import com.example.docapp.fragments.patients.DocListFragment
 import com.example.docapp.R
 import com.example.docapp.UserInfo
+import com.example.docapp.fragments.doctors.health_feedFragment
+//import com.example.docapp.fragments.doctors.health_feedFragment
 
 //import com.example.docapp.health_feedFragment
 
@@ -52,31 +54,28 @@ class HomeFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         view.askCard.setOnClickListener{
             Log.d("ask", "Selected")
-            useNmeLbl.text="445"
+            //useNmeLbl.text="445"
             val fraG = AskQFragment()
             replaceFragments(fraG)
         }
         view.feedsCard.setOnClickListener{
             Log.d("feeds", "Selected")
 
-            useNmeLbl.text="445"
+           // useNmeLbl.text="445"
             val fraG: health_feedFragment = health_feedFragment()
-
-//            useNmmeLbl.text="445"
-//            val fraG: DocListFragment = DocListFragment()
 
             replaceFragments(fraG)
         }
         view.consultsCard.setOnClickListener{
             Log.d("consult", "Selected")
-            useNmeLbl.text="445"
-            val fraG = AskQFragment()
+           // useNmeLbl.text="445"
+            val fraG = DocListFragment()
             replaceFragments(fraG)
         }
 
         view.msgCard.setOnClickListener{
             Log.d("messages", "Selected")
-            useNmeLbl.text="445"
+           // useNmeLbl.text="445"
             val fraG = AskQFragment()
             replaceFragments(fraG)
         }
@@ -120,7 +119,7 @@ class HomeFragment : Fragment() {
             .addOnSuccessListener {
                     document ->
                 val  user=document.toObject(User::class.java)!!
-                useNmeLbl.text="Hello  ${user.fullName} welcome"
+                useNmeLbl.text="Hello, ${user.userName.capitalize()} "
                 ///if activity = feed and role = doc->
                 ///else normal news feed
 

@@ -14,7 +14,10 @@ open class User(
     val hoursAvailablePerWeek:String="1",
     ///////////////////////
     val mobile: String="",
-    val BloodType: String=""
+    val BloodType: String="",
+    val age : String = "",
+    val height : String ="",
+    val weight : String = ""
     //patient-specific
 
 

@@ -8,6 +8,7 @@ class health_feed(
         val title: String="",
         val date_posted:String= "",
         val description: String="",
-        val supporting_stc: String=""
+        val supporting_stc: String="",
+        val feedBy : String = ""
 
 )

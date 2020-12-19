@@ -7,7 +7,8 @@ import com.example.docapp.R
 import com.example.docapp.fragments.doctors.DocHomeFragment
 import com.example.docapp.fragments.doctors.DocQnAFragment
 import com.example.docapp.fragments.doctors.DoctorProfileFragment
-import com.example.docapp.fragments.patients.health_feedFragment
+import com.example.docapp.fragments.doctors.health_feedFragment
+import com.example.docapp.fragments.patients.DocListFragment
 import kotlinx.android.synthetic.main.activity_doctor.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.btmnav
@@ -17,6 +18,7 @@ class DoctorActivity : AppCompatActivity() {
     private val QnA = DocQnAFragment()
     private val Profile = DoctorProfileFragment()
     private val Feed = health_feedFragment()
+    private val docList = DocListFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor)
@@ -27,6 +29,7 @@ class DoctorActivity : AppCompatActivity() {
                 R.id.miQues -> replaceFragments(QnA)
                 R.id.miProfile -> replaceFragments(Profile)
                 R.id.miFeed -> replaceFragments(Feed)
+                R.id.minotif -> replaceFragments(docList)
             }
             true
         }

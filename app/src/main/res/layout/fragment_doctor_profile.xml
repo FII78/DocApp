@@ -37,7 +37,7 @@
             app:srcCompat="@drawable/user" />
 
         <TextView
-            android:id="@+id/DocProfileName"
+            android:id="@+id/userFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="80dp"
@@ -91,10 +91,10 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/docExpVal" />
+            app:layout_constraintTop_toBottomOf="@+id/userBloodT" />
 
         <TextView
-            android:id="@+id/DocproEmailVal"
+            android:id="@+id/userEmail"
             android:layout_width="100dp"
             android:layout_height="17dp"
             android:layout_marginTop="25dp"
@@ -116,10 +116,10 @@
             android:textColor="#1E1D1D"
             android:textSize="18sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/DocproEmailVal" />
+            app:layout_constraintTop_toBottomOf="@+id/userEmail" />
 
         <TextView
-            android:id="@+id/DocproMob"
+            android:id="@+id/userMob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -128,25 +128,25 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.323"
             app:layout_constraintStart_toEndOf="@+id/DocproMobileLbl"
-            app:layout_constraintTop_toBottomOf="@+id/DocproEmailVal" />
+            app:layout_constraintTop_toBottomOf="@+id/userEmail" />
 
         <TextView
-            android:id="@+id/docproHeightVal"
+            android:id="@+id/userHeight"
             android:layout_width="1dp"
             android:layout_height="18dp"
             android:layout_marginTop="32dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/docExpVal" />
+            app:layout_constraintTop_toBottomOf="@+id/userBloodT" />
 
         <TextView
-            android:id="@+id/docweightVal"
+            android:id="@+id/userWeight"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/docproHeightVal" />
+            app:layout_constraintTop_toBottomOf="@+id/userHeight" />
 
         <Button
             android:id="@+id/docbtnOut"
@@ -164,7 +164,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/docExpVal"
+            android:id="@+id/userBloodT"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
@@ -184,7 +184,7 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.463"
-            app:layout_constraintStart_toEndOf="@+id/docExpVal"
+            app:layout_constraintStart_toEndOf="@+id/userBloodT"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -209,7 +209,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.305"
             app:layout_constraintStart_toEndOf="@+id/docProAvailHours"
-            app:layout_constraintTop_toBottomOf="@+id/DocproMob" />
+            app:layout_constraintTop_toBottomOf="@+id/userMob" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

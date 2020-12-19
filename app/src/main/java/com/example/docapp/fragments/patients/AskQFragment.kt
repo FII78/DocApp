@@ -10,11 +10,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.fragment.app.FragmentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.docapp.R
 import com.example.docapp.models.Questions
 import com.example.docapp.models.User
 import com.example.docapp.adapters.RecyclerAdapter
+import com.example.docapp.models.AnsList
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
@@ -38,7 +40,7 @@ import java.time.format.FormatStyle
     val  query=dbs.collection("questions")
     val users = dbs.collection("users")
 
-class AskQFragment  : Fragment() {
+class AskQFragment  : Fragment(),RecyclerAdapter.Callback {
     private var param1: String? = null
     private var param2: String? = null
 
@@ -85,6 +87,7 @@ class AskQFragment  : Fragment() {
         //Toast.makeText(getActivity(),"Registration Succes",Toast.LENGTH_LONG).show()
         var desc = descQ.text.toString().trim()
         var tag = getTagUser.text.toString().trim()
+        val answer = AnsList("","")
         val current = LocalDateTime.now()
         val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
         val askedAt = current.format(formatter)
@@ -98,7 +101,7 @@ class AskQFragment  : Fragment() {
         } else if (tag.length < 3) {
             getTagUser.error = "Insert more than 3 characters"
         } else {
-            var model = Questions(desc, askedAt, tag)
+            var model = Questions("",desc, askedAt, tag, arrayListOf())
             dbs.collection("questions")
                 .add(model)
                 .addOnSuccessListener { documentReference ->
@@ -120,6 +123,7 @@ class AskQFragment  : Fragment() {
 
         adapter= RecyclerAdapter(options)
         //val recyclerview=findViewById<RecyclerView>(R.id.recycleView)
+        adapter.setCallback(this)
         val recyclerview = recycleView
         recyclerview.setHasFixedSize(true)
         recyclerview.layoutManager = LinearLayoutManager(activity)
@@ -164,5 +168,14 @@ class AskQFragment  : Fragment() {
     override fun onStop() {
         super.onStop()
         adapter.stopListening()
+    }
+
+    override fun onCardClicked(question: Questions) {
+        val qFrag = QuestionFragment.newInstance(question)
+        var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container,qFrag)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 }

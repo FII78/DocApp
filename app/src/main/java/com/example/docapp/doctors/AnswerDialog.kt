@@ -11,14 +11,10 @@ import androidx.fragment.app.DialogFragment
 import com.example.docapp.R
 import com.example.docapp.fragments.patients.dbs
 import com.example.docapp.models.Questions
-import kotlinx.android.synthetic.main.fragment_ask_q.*
 import kotlinx.android.synthetic.main.fragment_ask_q.descQ
 import kotlinx.android.synthetic.main.fragment_dialog.*
 import kotlinx.android.synthetic.main.fragment_dialog.view.*
 import kotlinx.android.synthetic.main.fragment_doc_qn_a.*
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
-import java.time.format.FormatStyle
 
 class AnswerDialog : DialogFragment(){
 
@@ -40,7 +36,7 @@ class AnswerDialog : DialogFragment(){
     }
     private fun senData() {
         //Toast.makeText(getActivity(),"Registration Succes",Toast.LENGTH_LONG).show()
-        var answer = answer.text.toString().trim()
+        var answer = answers.text.toString().trim()
 
         if (TextUtils.isEmpty(answer)) {
             descQ.error = "Please insert your answer"
