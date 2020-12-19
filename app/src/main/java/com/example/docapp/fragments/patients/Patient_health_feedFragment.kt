@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.docapp.R
 import com.example.docapp.adapters.FeedAdapter
 import com.example.docapp.models.health_feed
-import com.example.docapp.patients.FeedAdapter
 import com.firebase.ui.firestore.FirestoreRecyclerOptions
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query

@@ -1,6 +1,7 @@
 package com.example.docapp.fragments.doctors
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,17 @@ import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
 import com.example.docapp.R
 import com.example.docapp.doctors.AnswerDialog
+import com.example.docapp.fragments.doctors.health_feedFragment
+import com.example.docapp.fragments.patients.AskQFragment
+import com.example.docapp.fragments.patients.DocListFragment
+
+import com.example.docapp.models.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.cardqnadoc.view.*
+import kotlinx.android.synthetic.main.fragment_doct_home.*
+import kotlinx.android.synthetic.main.fragment_doct_home.view.*
+import kotlinx.android.synthetic.main.fragment_home.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -38,7 +47,24 @@ class DocHomeFragment : Fragment() {
         // Inflate the layout for this fragment
 
         val view : View =inflater.inflate(R.layout.fragment_doct_home, container, false)
+        view.askCardDoc.setOnClickListener{
+            val fraG = DocQnAFragment()
+            replaceFragments(fraG)
+        }
+        view.feedsCardDoc.setOnClickListener{
+            val fraG = health_feedFragment()
+            replaceFragments(fraG)
+        }
+        view.consultsCardDoc.setOnClickListener{
+            val fraG = DocListFragment()
+            replaceFragments(fraG)
+        }
+        view.msgCardDoc.setOnClickListener{
+            val fraG = health_feedFragment()
+            replaceFragments(fraG)
+        }
 
+        getUSerDetails()
         return view
     }
 
@@ -53,4 +79,34 @@ class DocHomeFragment : Fragment() {
                     }
                 }
     }
+
+    private fun replaceFragments(fragment: Fragment) {
+        if(fragment != null ){
+            var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container_doc,fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
+        }
+    }
+    fun getCurrentUserId():String{
+        val currentUser= FirebaseAuth.getInstance().currentUser
+        var currentUserId=""
+        if(currentUser!=null){
+            currentUserId=currentUser.uid
+        }
+        return currentUserId
+    }
+    private fun getUSerDetails () {
+        dbs.collection("users")
+                .document(getCurrentUserId())
+                .get()
+                .addOnSuccessListener {
+                    document ->
+                    val  user=document.toObject(User::class.java)!!
+                    useNmeLblDoc.text="Hello, ${user.userName.capitalize()} "
+                    ///if activity = feed and role = doc->
+                    ///else normal news feed
+
+                }}
 }

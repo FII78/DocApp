@@ -22,15 +22,15 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <MultiAutoCompleteTextView
-        android:id="@+id/answer"
+        android:id="@+id/answers"
         android:layout_width="355dp"
         android:layout_height="117dp"
-        android:layout_marginStart="25dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
-        android:layout_marginEnd="25dp"
-        android:background="@drawable/cust_int"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/shape20"
         android:hint="@string/your_responsehint"
-        android:padding="10dp"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -42,11 +42,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="40dp"
-        android:background="#6A4CAF50"
+        android:background="@drawable/shape_10"
         android:text="@string/cancel"
-        android:textColor="#FFFFFF"
+        android:textColor="@color/blue"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer" />
+        app:layout_constraintTop_toBottomOf="@+id/answers" />
 
     <Button
         android:id="@+id/respBtn"
@@ -54,12 +54,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="#4CAF50"
+        android:background="@drawable/bg_btn_s"
         android:text="@string/submit"
         android:textColor="#FFFCFC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.864"
         app:layout_constraintStart_toEndOf="@+id/canclBtn"
-        app:layout_constraintTop_toBottomOf="@+id/answer" />
+        app:layout_constraintTop_toBottomOf="@+id/answers" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

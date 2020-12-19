@@ -42,7 +42,7 @@ class ProfileFragment : Fragment() {
         // Inflate the layout for this fragment
         var view:View= inflater.inflate(R.layout.fragment_profile, container, false)
         getUSerDetails()
-        view.docbtnOut.setOnClickListener{
+        view.btnOut.setOnClickListener{
             FirebaseAuth.getInstance().signOut();
             startActivity(Intent(activity,LoginActivity::class.java))
         }
@@ -50,16 +50,7 @@ class ProfileFragment : Fragment() {
     }
 
     companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment ProfileFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
+
         fun newInstance(param1: String, param2: String) =
             ProfileFragment().apply {
                 arguments = Bundle().apply {
@@ -84,13 +75,19 @@ class ProfileFragment : Fragment() {
             .addOnSuccessListener {
                     document ->
                 val  user=document.toObject(User::class.java)!!
-                DocProfileName.text="Hello  ${user.fullName} welcome"
-                DocproEmailVal.text= user.email
-                docExpVal.text=user.BloodType
+                userFullName.text="Hello  ${user.fullName} welcome"
+                userEmail.text= user.email
+                userBloodT.text=user.BloodType
+                userAge.text = user.age
+                userHeight.text = user.height
+                userWeight.text = user.weight
+                userPName.text = user.userName
+                userSex.text = user.sex
 
-                ///if activity = feed and role = doc->
-                ///else normal news feed
 
             }}
+    private  fun updateProfile(){
+
+    }
 
 }

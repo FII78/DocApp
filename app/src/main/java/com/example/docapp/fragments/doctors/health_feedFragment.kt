@@ -1,4 +1,4 @@
-package com.example.docapp.fragments.patients
+package com.example.docapp.fragments.doctors
 
 import android.content.Intent
 import android.os.Bundle
@@ -46,23 +46,12 @@ class health_feedFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
 
         val fragmentView: View = inflater.inflate(R.layout.feed_home, container, false)
-//        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
-//        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
-//
-//        postRecyclerView = fragmentView.findViewById(R.id.recycleView)
-//        postRecyclerView.layoutManager = LinearLayoutManager(activity)
-//        postRecyclerView.setHasFixedSize(true)
-//        postRecyclerView.adapter = postAdapter
+
         val fab: View = fragmentView.findViewById(R.id.floating_action_button)
         fab.setOnClickListener { view ->
             val intent = Intent(activity, New_Feed_Doctor_Activity::class.java)
             startActivity(intent)
         }
-
-//        val queries=query.orderBy("date_posted",Query.Direction.DESCENDING)
-//        val options: FirestoreRecyclerOptions<health_feed> = FirestoreRecyclerOptions.Builder<health_feed>().setQuery(queries,health_feed::class.java).build()
-//
-//        postAdapter = FeedAdapter(options)
         return fragmentView
 
     }

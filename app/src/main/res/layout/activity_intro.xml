@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".IntroActivity">
     <ImageView
-        android:id="@+id/spalshimg"
+        android:id="@+id/splashImg"
         android:layout_width="wrap_content"
         android:layout_height="900dp"
         android:src="@drawable/bg"

@@ -25,7 +25,7 @@ var firebaseUser:FirebaseUser?=null
 
         this.logo =findViewById(R.id.logo)
 
-        splashImg=findViewById(R.id.spalshimg)
+        splashImg=findViewById(R.id.splashImg)
 
         topAnim=AnimationUtils.loadAnimation(this,
             R.anim.top_animation

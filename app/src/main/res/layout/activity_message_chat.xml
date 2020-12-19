@@ -21,11 +21,12 @@
         android:background="@color/blue"
     app:popupTheme="@style/Theme.DocApp.PopupOverlay">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/profile_msg"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:src="@drawable/ic_profile" />
+<!--        <de.hdodenhof.circleimageview.CircleImageView-->
+<!--            android:id="@+id/profile_msg"-->
+<!--            android:layout_width="32dp"-->
+<!--            android:layout_height="32dp"-->
+<!--            android:src="@drawable/ic_profile"-->
+<!--            tools:ignore="MissingClass" />-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -76,8 +77,8 @@
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="6dp"
             android:layout_marginRight="6dp"
-            android:layout_toLeftof="@id/send_image_file_btn"
-            android:layout_toRightof="@id/attact_image_file_btn"
+            android:layout_toLeftOf="@id/send_image_file_btn"
+            android:layout_toRightOf="@id/attact_image_file_btn"
             android:background="@color/transparent"
             android:hint="write your message here"
 

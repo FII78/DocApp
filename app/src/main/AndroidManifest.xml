@@ -13,7 +13,7 @@
         android:theme="@style/Theme.DocApp">
         <activity android:name=".MessageChatActivity"></activity>
         <activity
-            android:name=".ChatActivity"
+            android:name=".IntroActivity"
             android:label="@string/title_activity_chat"
             android:theme="@style/Theme.DocApp.NoActionBar">
             <intent-filter>
@@ -26,8 +26,8 @@
         <activity android:name=".doctors.New_Feed_Doctor_Activity" />
         <activity android:name=".doctors.doctorsSignupActivity" />
         <activity android:name=".signupActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".patients.UserActivity" />
 
         <meta-data

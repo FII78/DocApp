@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="25dp"
+    android:background="@drawable/gr_1"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragments.doctors.AnswerQFragment">
+
+
+    <TextView
+        android:id="@+id/titlefeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/muli_black"
+        android:text="Your Response"
+        android:textAllCaps="true"
+        android:textColor="@color/white"
+        android:layout_marginBottom="40dp"
+        android:textSize="24sp"
+
+
+        />
+
+    <com.google.android.material.textfield.TextInputLayout android:layout_height="wrap_content"
+        android:layout_width="match_parent">
+
+        <EditText
+
+            android:id="@+id/answerVal"
+
+            android:layout_width="match_parent"
+            android:layout_height="162dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="15dp"
+            android:autofillHints=""
+            android:focusable="true"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:lines="8"
+            android:maxLines="10"
+            android:padding="25dp"
+            android:paddingTop="0dp"
+            android:scrollbars="vertical"
+            android:textColor="@android:color/black" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/canclBtn"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28dp"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/shape_10"
+                android:text="@string/cancel"
+                android:textColor="@color/blue"
+                android:layout_marginRight="25dp"
+                android:layout_marginLeft="45dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/answers" />
+
+            <Button
+                android:id="@+id/respBtn"
+                style="@style/Widget.AppCompat.Button.Borderless.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/bg_btn_s"
+                android:text="@string/submit"
+                android:textColor="#FFFCFC"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.864"
+                app:layout_constraintStart_toEndOf="@+id/canclBtn"
+                app:layout_constraintTop_toBottomOf="@+id/answers" />
+
+        </LinearLayout>
+
+</LinearLayout>
