@@ -16,7 +16,7 @@
     <item
         android:id="@+id/minotif"
         android:icon="@drawable/doctors"
-        android:title="@string/doctors" />
+        android:title="doctors" />
     <item android:id="@+id/miProfile"
         android:title="@string/profile"
         android:icon="@drawable/ic_account"

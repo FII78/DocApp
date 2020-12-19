@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
-import com.example.docapp.DocListFragment
+import com.example.docapp.fragments.patients.DocListFragment
 import com.example.docapp.R
 import com.example.docapp.UserInfo
 

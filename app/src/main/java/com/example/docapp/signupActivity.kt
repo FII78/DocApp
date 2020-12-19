@@ -10,6 +10,8 @@ import com.example.docapp.models.User
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_signup.*
@@ -20,12 +22,16 @@ class signupActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var rootNode:FirebaseDatabase
+    private lateinit var reference:DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
         firestore=FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
+        rootNode= FirebaseDatabase.getInstance()
+        reference=rootNode.getReference("users")
 
         findViewById<Button>(R.id.next_btn).setOnClickListener {
             val email = findViewById<TextInputLayout>(R.id.Email).editText!!.text.toString()
@@ -74,6 +80,7 @@ private fun signup(email:String,password:String) {
 //                            }
 //                        }
 
+
                     if(isDoctor=="doctor")
                     {
                         val intent = Intent(this, doctorsSignupActivity::class.java)
@@ -89,6 +96,17 @@ private fun signup(email:String,password:String) {
                     }
                     else
                     {
+                        //firebase
+
+                        val userF = User(
+                            firebaseUser.uid,
+                            fullname,
+                            username,
+                            email,
+                            isDoctor
+                        )
+                        reference.child(firebaseUser.uid).setValue(userF)
+                        //firestore
                         val user = User(
                         firebaseUser.uid,
                         fullname,
