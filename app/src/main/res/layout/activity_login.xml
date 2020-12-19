@@ -20,7 +20,7 @@
         android:textColor="@color/black"
         android:textSize="40sp" />
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -55,6 +55,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/password"
             android:hint="@string/password"
+            android:layout_below="@+id/username"
             app:hintTextColor="@color/black"
             app:boxStrokeColor="@color/black"
             app:boxStrokeWidthFocused="2dp"
@@ -74,10 +75,12 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <RelativeLayout
+            android:id="@+id/relat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="15dp"
+            android:layout_below="@+id/password"
             android:padding="5dp">
 
             <CheckBox
@@ -103,6 +106,7 @@
 
         <Button
             android:id="@+id/login_btn"
+            android:layout_below="@+id/relat"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login_title"
@@ -110,7 +114,7 @@
             android:textColor="@color/white"
             android:layout_marginTop="20dp"/>
 
-        <Button
+        <Button android:layout_below="@id/login_btn"
             android:id="@+id/signup_btn_login"
             android:layout_width="351dp"
             android:layout_height="wrap_content"
@@ -119,5 +123,20 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/bg_btn_2"
             android:text="@string/create_account" />
-    </LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_centerInParent="true"
+            >
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:visibility="gone"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
 </LinearLayout>
