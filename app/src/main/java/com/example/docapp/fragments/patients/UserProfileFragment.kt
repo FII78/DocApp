@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentActivity
 import com.example.docapp.LoginActivity
 import com.example.docapp.R
 import com.example.docapp.models.User
@@ -46,6 +47,12 @@ class ProfileFragment : Fragment() {
             FirebaseAuth.getInstance().signOut();
             startActivity(Intent(activity,LoginActivity::class.java))
         }
+        view.editProfile.setOnClickListener{
+                openEditFragment()
+        }
+        view.editMob.setOnClickListener{
+            openMobFragment()
+        }
         return view
     }
 
@@ -75,19 +82,43 @@ class ProfileFragment : Fragment() {
             .addOnSuccessListener {
                     document ->
                 val  user=document.toObject(User::class.java)!!
-                userFullName.text="Hello  ${user.fullName} welcome"
+                userFullName.text=user.fullName.capitalize()
                 userEmail.text= user.email
                 userBloodT.text=user.BloodType
                 userAge.text = user.age
                 userHeight.text = user.height
                 userWeight.text = user.weight
-                userPName.text = user.userName
+                userPName.text = "Username: ${ user.userName.capitalize() }"
                 userSex.text = user.sex
+                userMob.text = user.mobile
 
 
             }}
     private  fun updateProfile(){
 
+    }
+    private fun editMob(){
+        dbs.collection("users")
+            .document(getCurrentUserId())
+            .update("mobile",userMob)
+    }
+
+
+    private fun openEditFragment(){
+        val fragment = EditProfileFragment()
+        var  fragmentM = (activity as FragmentActivity).supportFragmentManager
+        val transaction = fragmentM.beginTransaction()
+        transaction.replace(R.id.fragment_container,fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+    private fun openMobFragment(){
+        val fragment = EditMobFragment()
+        var  fragmentM = (activity as FragmentActivity).supportFragmentManager
+        val transaction = fragmentM.beginTransaction()
+        transaction.replace(R.id.fragment_container,fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
     }
 
 }

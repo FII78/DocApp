@@ -176,6 +176,6 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="greet">How are you today ?</string>
     <string name="age">Age</string>
-    <string name="sex">Sex</string>
+    <string name="ssex">Sex</string>
     <string name="editPro">Edit Profile</string>
 </resources>
