@@ -12,6 +12,8 @@ import com.example.docapp.models.User
 import com.google.android.material.slider.Slider
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import kotlinx.android.synthetic.main.activity_doctors_signup.*
@@ -20,6 +22,8 @@ class doctorsSignupActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     private lateinit var firestore: FirebaseFirestore
+    private lateinit var rootNode:FirebaseDatabase
+    private lateinit var reference: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,86 +31,37 @@ class doctorsSignupActivity : AppCompatActivity() {
 
         firestore = FirebaseFirestore.getInstance()
         auth = FirebaseAuth.getInstance()
+        rootNode= FirebaseDatabase.getInstance()
+        reference=rootNode.getReference("users")
+
         login_btn_docS.setOnClickListener{
             callLoginSignUp()
         }
 
         findViewById<Button>(R.id.doc_reg_btn).setOnClickListener {
-            //         val hoursperweekSlider=findViewById<Slider>(R.id.slider_hour)
-//            val slider: Slider = view.findViewById(android.R.id.slider)
-//            slider.addOnSliderTouchListener(touchListener)
-
-            val experience = findViewById<Slider>(R.id.slider_Loe).toString()
-            val specialization = findViewById<TextInputLayout>(R.id.Specialization).editText!!.text.toString()
-            var sex = ""
-            val rg = findViewById<RadioGroup>(R.id.sex)
 
 
-            rg.setOnCheckedChangeListener { group, checkedId ->
-                when (checkedId) {
-                    R.id.male ->
-                        sex = "male"
-                    // do operations specific to this selection
-                    R.id.female ->
-                        sex = "female"
-                    // do operations specific to this selection
-
-                }
-//=======
-
-
-                //   var experienceSlider=findViewById<Slider>(R.id.slider_Loe)
                 var specialization = findViewById<TextInputLayout>(R.id.Specialization).editText!!.text.toString()
                 var hoursperweek = findViewById<TextInputLayout>(R.id.slider_hour).editText!!.text.toString()
 
                 var experience = findViewById<TextInputLayout>(R.id.slider_Loe).editText!!.text.toString()
-                //var hoursperweek:String=""
-//            hoursperweekSlider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
-//                override fun onStartTrackingTouch(slider: Slider) {
-//                    // Responds to when slider's touch event is being started
+                var sex=""
+//            lateinit var sex:String
 //
-//                    hoursperweek=  slider.valueTo.toString()
-//                }
-//
-//                override fun onStopTrackingTouch(slider: Slider) {
-//                    hoursperweek=  slider.valueTo.toString()
-//                }
-//            })
-//            experienceSlider.addOnSliderTouchListener(object : Slider.OnSliderTouchListener {
-//                override fun onStartTrackingTouch(slider: Slider) {
-//                    // Responds to when slider's touch event is being started
-//                    experience+= slider.valueTo.toString()
-//                }
-//
-//                override fun onStopTrackingTouch(slider: Slider) {
-//                    experience+= slider.valueTo.toString()
-//                }
-//
-//            })
-                var text: String = ""
-
-                val radioGroup = findViewById<RadioGroup>(R.id.sex)
-                radioGroup.setOnCheckedChangeListener { group, checkedId ->
-                    Toast.makeText(this, checkedId, Toast.LENGTH_SHORT).show()
-                    text = if (R.id.male == checkedId) "male" else "female"
-
-                }
-                var sex = text
-//            val rg = findViewById<RadioGroup>(R.id.sex)
-//
+//            var rg = findViewById<RadioGroup>(R.id.sex)
 //            rg.setOnCheckedChangeListener { group, checkedId ->
-//                when(checkedId){
-//                    R.id.male->
-//                        sex="male"
-//                    // do operations specific to this selection
-//                    R.id.female->
-//                        sex="female"
-//                    // do operations specific to this selection
+//
+//                when (checkedId) {
+//                    R.id.male ->
+//                        sex = "male"
+//                    R.id.female ->
+//                        sex = "female"
 //
 //                }
 //            }
                 signup(specialization, hoursperweek, experience, sex)
-            }
+
+
         }}
         private fun signup(specialization: String, hoursperweek: String, experience: String, sex: String) {
 
@@ -117,7 +72,22 @@ class doctorsSignupActivity : AppCompatActivity() {
             val fullname = extras.getString("EXTRA_FULL_NAME").toString()
             val email = extras.getString("EXTRA_EMAIL").toString()
             val role = extras.getString("EXTRA_ROLE").toString()
+           //firebase
 
+            val userF = User(
+                userid,
+                fullname,
+                username,
+                email,
+                role,
+                sex,
+                experience,
+                specialization,
+                hoursperweek
+
+            )
+            reference.child(userid).setValue(userF)
+            //
             val user = User(
                     userid,
                     fullname,

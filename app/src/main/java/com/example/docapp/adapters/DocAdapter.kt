@@ -52,15 +52,8 @@ class DocAdapter (options: FirestoreRecyclerOptions<User>) : FirestoreRecyclerAd
                 holder.experience.text= model.experience
                 holder.hours_avail.text = model.hoursAvailablePerWeek
                 holder.specialization.text = model.specialization
-                var sex = model.sex
-                if (sex=="female")
-                {
+               //gender
 
-                }
-                else
-                {
-
-                }
             }
 
 

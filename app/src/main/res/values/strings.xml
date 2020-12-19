@@ -127,7 +127,7 @@
     <string name="search_hint">Search  health issue, doctor,topic</string>
     <string name="feeds">Health Feeds</string>
     <string name="consult">Online Consults</string>
-    <string name="chatL">Chats</string>
+    <string name="chatL">Messages</string>
     <string name="question">Your question</string>
     <string name="que">What is your question ?</string>
     <string name="asqBtnLbl">Asq question</string>
@@ -178,4 +178,5 @@
     <string name="age">Age</string>
     <string name="ssex">Sex</string>
     <string name="editPro">Edit Profile</string>
+    <string name="write_your_message_here">write your message here</string>
 </resources>

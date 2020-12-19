@@ -13,21 +13,23 @@
         android:theme="@style/Theme.DocApp">
         <activity android:name=".MessageChatActivity"></activity>
         <activity
-            android:name=".IntroActivity"
+            android:name=".ChatActivity"
             android:label="@string/title_activity_chat"
             android:theme="@style/Theme.DocApp.NoActionBar">
+
+        </activity>
+        <activity android:name=".doctors.DoctorActivity" />
+        <activity android:name=".doctors.New_Feed_Doctor_Activity" />
+        <activity android:name=".doctors.doctorsSignupActivity" />
+        <activity android:name=".signupActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".doctors.DoctorActivity" />
-        <activity android:name=".doctors.New_Feed_Doctor_Activity" />
-        <activity android:name=".doctors.doctorsSignupActivity" />
-        <activity android:name=".signupActivity" />
-        <activity android:name=".ChatActivity" />
-        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".patients.UserActivity" />
 
         <meta-data
