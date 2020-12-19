@@ -11,15 +11,6 @@
 
      >
 
-    <ImageView
-        android:id="@+id/signup_back_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="5sp"
-        android:src="@drawable/left_arrow"
-
-        android:contentDescription="TODO" />
-
     <TextView
         android:id="@+id/signup_txt"
         android:layout_width="wrap_content"
@@ -61,6 +52,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/fullNameReg"
                 android:fontFamily="@font/muli" />
         </com.google.android.material.textfield.TextInputLayout>
         <com.google.android.material.textfield.TextInputLayout
@@ -80,6 +72,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/userNameReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/muli"
@@ -102,6 +95,7 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/muli"
@@ -124,71 +118,38 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passReg"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/muli"
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:id="@+id/purpose"-->
-<!--            android:hint="@string/doctor_or_patient"-->
-<!--            app:hintTextColor="@color/black"-->
-<!--            app:boxStrokeColor="@color/black"-->
-<!--            app:boxStrokeWidthFocused="2dp"-->
-<!--            app:startIconDrawable="@drawable/user"-->
-<!--            app:startIconTint="@color/blue"-->
-<!--            app:endIconMode="clear_text"-->
-<!--            app:endIconTint="@color/blue"-->
-<!--            android:layout_marginBottom="8sp"-->
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:paddingRight="5dp"
+            android:id="@+id/role"
+            >
 
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
+            <RadioButton
+                android:id="@+id/patient"
+                android:layout_width="136dp"
+                android:layout_height="wrap_content"
+                android:text="Patient"
+                android:buttonTint="@color/blue"
+                />
 
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:fontFamily="@font/muli"-->
-<!--                android:inputType="text" />-->
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/role_txt"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="Choose your purpose"-->
-<!--            android:textColor="#676767"-->
-<!--            android:textSize="18sp"-->
-
-
-<!--            />-->
-<!--        <RadioGroup-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:orientation="horizontal"-->
-<!--            android:layout_gravity="center"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:paddingRight="5dp"-->
-<!--            android:id="@+id/role"-->
-<!--            >-->
-
-<!--            <RadioButton-->
-<!--                android:id="@+id/patient"-->
-<!--                android:layout_width="136dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Patient"-->
-<!--                android:buttonTint="@color/blue"-->
-<!--                />-->
-
-<!--            <RadioButton-->
-<!--                android:id="@+id/Doctor"-->
-<!--                android:layout_width="114dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:text="Doctor"-->
-<!--                android:buttonTint="@color/blue"/>-->
-<!--        </RadioGroup>-->
+            <RadioButton
+                android:id="@+id/Doctor"
+                android:layout_width="114dp"
+                android:layout_height="wrap_content"
+                android:text="Doctor"
+                android:buttonTint="@color/blue"/>
+        </RadioGroup>
 
         <Button
             android:id="@+id/next_btn"
@@ -211,6 +172,9 @@
             android:textColor="@color/blue"
 
             />
+
+
+
 
     </LinearLayout>
 </LinearLayout>

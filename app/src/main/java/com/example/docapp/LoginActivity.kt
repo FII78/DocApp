@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.Toast
@@ -15,6 +16,8 @@ import com.example.docapp.patients.UserActivity
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.activity_login.*
+import kotlinx.android.synthetic.main.activity_signup.*
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var auth: FirebaseAuth
@@ -23,7 +26,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var username:String
     private lateinit var password:String
     private lateinit var signup:Button
-
+   // private var userLog = userLog.
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(
@@ -62,27 +65,24 @@ class LoginActivity : AppCompatActivity() {
     }
     private fun signInUser(email:String, password:String)
     {
-        auth.signInWithEmailAndPassword(email,password)
-            .addOnCompleteListener { task->
-                if(task.isSuccessful){
-//                    val currentUser=FirebaseAuth.getInstance().currentUser
-//                    if(currentUser.role == "doctor"){
-//                        val intent=Intent(this, DoctorActivity::class.java)
-//                        startActivity(intent)
-//                        finish()
-////                    }else{
-                    ///
-//                        val intent=Intent(this, ChatActivity::class.java)
-//                        startActivity(intent)
-//                        finish()
-//                    }
-                         redirectUSer()
-                }
-                else
-                {
-                    Toast.makeText(this, "Error Message"+task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
-                }
-            }
+        val Email = userLog.text.toString().trim()
+        val Password = passLog.text.toString().trim()
+
+        if(TextUtils.isEmpty(Email)){
+            userLog.error = "Email is required !!"
+        }else if (TextUtils.isEmpty(Password)){
+            passLog.error = "Password is required !!"
+        }
+        else {
+            auth.signInWithEmailAndPassword(email, password)
+                    .addOnCompleteListener { task ->
+                        if (task.isSuccessful) {
+                            redirectUSer()}
+                        } else {
+                            Toast.makeText(this, "Error Message" + task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
+                        }
+                    }
+        }
     }
     private fun redirectUSer () {
         // var user:User
