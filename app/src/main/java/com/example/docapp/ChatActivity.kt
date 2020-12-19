@@ -14,8 +14,14 @@ import androidx.viewpager.widget.ViewPager
 import com.example.docapp.fragments.ChatsFragment
 import com.example.docapp.fragments.SearchFragment
 import com.example.docapp.fragments.SettingFragment
+import com.example.docapp.fragments.patient_health_feedFragment
+import com.example.docapp.fragments.patients.AskQFragment
+import com.example.docapp.fragments.patients.HomeFragment
+import com.example.docapp.fragments.patients.ProfileFragment
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_chat.*
+import kotlinx.android.synthetic.main.activity_chat.btmnav
+import kotlinx.android.synthetic.main.activity_main.*
 
 class ChatActivity : AppCompatActivity() {
 
@@ -36,6 +42,7 @@ class ChatActivity : AppCompatActivity() {
         viewPagerAdapter.addFragment(SettingFragment(),"Setting")
         viewPager.adapter=viewPagerAdapter
         tabLayout.setupWithViewPager(viewPager)
+
 
     }
     internal class viewPagerAdapter(fragmentManager:FragmentManager):

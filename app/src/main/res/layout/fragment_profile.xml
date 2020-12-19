@@ -321,18 +321,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
             android:layout_marginTop="20dp"
-            android:src="@drawable/pencil"
-        <Button
-            android:id="@+id/button"
-            android:layout_width="119dp"
-            android:layout_height="44dp"
-            android:layout_marginTop="68dp"
-            android:background="@drawable/grad"
-            android:text="editPro"
-            android:textColor="@color/design_default_color_background"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/userAge"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+            android:src="@drawable/pencil"/>
 
         <ImageView
             android:id="@+id/imageView5"
@@ -342,9 +331,20 @@
             android:layout_marginTop="20dp"
             android:src="@drawable/pencil"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.51"
             app:layout_constraintStart_toEndOf="@+id/userSex"
-            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/pencil"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/userAge"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -33,11 +33,6 @@ import java.time.format.FormatStyle
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [DocQnAFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class DocQnAFragment : Fragment(),QnAdapterDoc.Callback {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
@@ -154,16 +149,6 @@ class DocQnAFragment : Fragment(),QnAdapterDoc.Callback {
     }
 
     override fun onCardClicked(question: Questions) {
-//        val qFrag = QuestionFragment.newInstance(question)
-//        var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
-//        val transaction = fragmentManager.beginTransaction()
-//        transaction.replace(R.id.fragment_container_doc,qFrag)
-//        transaction.addToBackStack(null)
-//        transaction.commit()
-    }
-
-    override fun onBtnClicked(question: Questions) {
-        TODO("Not yet implemented")
         val qFrag = AnswerQFragment.newInstance(question)
         var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
         val transaction = fragmentManager.beginTransaction()
@@ -171,4 +156,24 @@ class DocQnAFragment : Fragment(),QnAdapterDoc.Callback {
         transaction.addToBackStack(null)
         transaction.commit()
     }
+
+    override fun onClicked(question: Questions) {
+
+        val qFrag = QuestionFragment.newInstance(question)
+        var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
+        val transaction = fragmentManager.beginTransaction()
+        transaction.replace(R.id.fragment_container_doc,qFrag)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
+
+//    override fun onBtnClicked(question: Questions) {
+//        TODO("Not yet implemented")
+//        val qFrag = AnswerQFragment.newInstance(question)
+//        var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
+//        val transaction = fragmentManager.beginTransaction()
+//        transaction.replace(R.id.fragment_container_doc,qFrag)
+//        transaction.addToBackStack(null)
+//        transaction.commit()
+//    }
 }

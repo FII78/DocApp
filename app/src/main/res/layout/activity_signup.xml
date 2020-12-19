@@ -130,29 +130,29 @@
                 android:inputType="textPassword" />
 
         </com.google.android.material.textfield.TextInputLayout>
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/purpose"
-            android:hint="@string/doctor_or_patient"
-            app:hintTextColor="@color/black"
-            app:boxStrokeColor="@color/black"
-            app:boxStrokeWidthFocused="2dp"
-            app:startIconDrawable="@drawable/user"
-            app:startIconTint="@color/blue"
-            app:endIconMode="clear_text"
-            app:endIconTint="@color/blue"
-            android:layout_marginBottom="8sp"
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:id="@+id/purpose"-->
+<!--            android:hint="@string/doctor_or_patient"-->
+<!--            app:hintTextColor="@color/black"-->
+<!--            app:boxStrokeColor="@color/black"-->
+<!--            app:boxStrokeWidthFocused="2dp"-->
+<!--            app:startIconDrawable="@drawable/user"-->
+<!--            app:startIconTint="@color/blue"-->
+<!--            app:endIconMode="clear_text"-->
+<!--            app:endIconTint="@color/blue"-->
+<!--            android:layout_marginBottom="8sp"-->
 
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">-->
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/muli"
-                android:inputType="text" />
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/muli"-->
+<!--                android:inputType="text" />-->
 
-        </com.google.android.material.textfield.TextInputLayout>
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
 <!--        <TextView-->
 <!--            android:id="@+id/role_txt"-->

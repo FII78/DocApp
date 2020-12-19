@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DocApp">
-        <activity android:name=".MessageChatActivity"></activity>
+        <activity android:name=".IntroActivity"></activity>
         <activity
             android:name=".ChatActivity"
             android:label="@string/title_activity_chat"
@@ -22,8 +22,8 @@
         <activity android:name=".doctors.New_Feed_Doctor_Activity" />
         <activity android:name=".doctors.doctorsSignupActivity" />
         <activity android:name=".signupActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".IntroActivity">
+        <activity android:name=".MessageChatActivity" />
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -51,17 +51,17 @@ class QnAdapterDoc(options: FirestoreRecyclerOptions<Questions>)
     }
     override fun onBindViewHolder(holder: QuestionHolder, position: Int, model: Questions) {
         // TODO("Not yet implemented")
-        holder.itemDesc.text=model.description
-        holder.createdAtc.text= model.asked_at
+        holder.itemDesc.text = model.description
+        holder.createdAtc.text = model.asked_at
         holder.tag.text = model.tag.capitalize()
-        holder.numAns.text = "${ model.answers.size } answers"
+        holder.numAns.text = "${model.answers.size} answers"
 
-            holder.itemView.btnAnswerDoc.setOnClickListener(object : View.OnClickListener{
-                override fun onClick(v: View?) {
-                    // setCallback()
-                    mCallback.onCardClicked(model)
-                }
-            })
+        holder.itemView.btnAnswerDoc.setOnClickListener(object : View.OnClickListener {
+            override fun onClick(v: View?) {
+                // setCallback()
+                mCallback.onCardClicked(model)
+            }
+        })
 //
 //        holder.itemView.setOnClickListener(object : View.OnClickListener {
 //            override fun onClick(v: View?) {
@@ -74,7 +74,7 @@ class QnAdapterDoc(options: FirestoreRecyclerOptions<Questions>)
         holder.itemView.setOnClickListener(object : View.OnClickListener{
             override fun onClick(v: View?) {
                 // setCallback()
-                mCallback.onCardClicked(model)
+                mCallback.onClicked(model)
             }
         })
     }
@@ -85,7 +85,7 @@ class QnAdapterDoc(options: FirestoreRecyclerOptions<Questions>)
 
     interface Callback{
         fun onCardClicked(question: Questions)
-        fun onBtnClicked(question: Questions)
+        fun onClicked(question: Questions)
     }
 
 }

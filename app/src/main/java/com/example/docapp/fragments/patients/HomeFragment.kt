@@ -10,6 +10,8 @@ import androidx.fragment.app.FragmentActivity
 import com.example.docapp.fragments.patients.DocListFragment
 import com.example.docapp.R
 import com.example.docapp.UserInfo
+import com.example.docapp.fragments.ChatsFragment
+import com.example.docapp.fragments.SearchFragment
 import com.example.docapp.fragments.doctors.health_feedFragment
 //import com.example.docapp.fragments.doctors.health_feedFragment
 
@@ -69,14 +71,14 @@ class HomeFragment : Fragment() {
         view.consultsCard.setOnClickListener{
             Log.d("consult", "Selected")
            // useNmeLbl.text="445"
-            val fraG = DocListFragment()
+            val fraG = SearchFragment()
             replaceFragments(fraG)
         }
 
         view.msgCard.setOnClickListener{
             Log.d("messages", "Selected")
            // useNmeLbl.text="445"
-            val fraG = AskQFragment()
+            val fraG = ChatsFragment()
             replaceFragments(fraG)
         }
         getUSerDetails()

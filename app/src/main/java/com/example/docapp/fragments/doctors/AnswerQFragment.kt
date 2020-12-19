@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.FragmentActivity
 import com.example.docapp.R
 import com.example.docapp.adapters.QnAdapterDoc
 import com.example.docapp.fragments.patients.QuestionFragment
@@ -53,6 +54,14 @@ class AnswerQFragment : Fragment(),QnAdapterDoc.Callback {
         Toast.makeText(activity,"${argQuestions.documentId}",Toast.LENGTH_LONG).show()
         view.respBtn.setOnClickListener{
             update()
+        }
+        view.canclBtn.setOnClickListener{
+            var fragment = DocQnAFragment()
+            var  fragmentManager = (activity as FragmentActivity).supportFragmentManager
+            val transaction = fragmentManager.beginTransaction()
+            transaction.replace(R.id.fragment_container_doc,fragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
         return view
     }
@@ -100,9 +109,13 @@ class AnswerQFragment : Fragment(),QnAdapterDoc.Callback {
         TODO("Not yet implemented")
     }
 
-    override fun onBtnClicked(question: Questions) {
+    override fun onClicked(question: Questions) {
         TODO("Not yet implemented")
     }
+//
+//    override fun onBtnClicked(question: Questions) {
+//        TODO("Not yet implemented")
+//    }
 
     fun getCurrentUserId():String{
         val currentUser= FirebaseAuth.getInstance().currentUser

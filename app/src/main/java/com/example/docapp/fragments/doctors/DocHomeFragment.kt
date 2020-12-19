@@ -1,5 +1,6 @@
 package com.example.docapp.fragments.doctors
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,13 +8,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
+import com.example.docapp.ChatActivity
+import com.example.docapp.MessageChatActivity
 import com.example.docapp.R
 import com.example.docapp.doctors.AnswerDialog
+import com.example.docapp.fragments.ChatsFragment
+import com.example.docapp.fragments.SearchFragment
 import com.example.docapp.fragments.doctors.health_feedFragment
 import com.example.docapp.fragments.patients.AskQFragment
 import com.example.docapp.fragments.patients.DocListFragment
 
 import com.example.docapp.models.User
+import com.example.docapp.patients.UserActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.cardqnadoc.view.*
@@ -56,12 +62,14 @@ class DocHomeFragment : Fragment() {
             replaceFragments(fraG)
         }
         view.consultsCardDoc.setOnClickListener{
-            val fraG = DocListFragment()
+            val fraG = SearchFragment()
             replaceFragments(fraG)
         }
         view.msgCardDoc.setOnClickListener{
-            val fraG = health_feedFragment()
-            replaceFragments(fraG)
+//            val fraG = ChatsFragment()
+//            replaceFragments(fraG)
+            val intent= Intent(activity, ChatActivity::class.java)
+            startActivity(intent)
         }
 
         getUSerDetails()

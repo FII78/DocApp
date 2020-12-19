@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.docapp.R
+import com.example.docapp.fragments.SearchFragment
 import com.example.docapp.fragments.doctors.DocHomeFragment
 import com.example.docapp.fragments.doctors.DocQnAFragment
 import com.example.docapp.fragments.doctors.DoctorProfileFragment
@@ -19,6 +20,7 @@ class DoctorActivity : AppCompatActivity() {
     private val Profile = DoctorProfileFragment()
     private val Feed = health_feedFragment()
     private val docList = DocListFragment()
+    private val search = SearchFragment()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doctor)
@@ -29,7 +31,7 @@ class DoctorActivity : AppCompatActivity() {
                 R.id.miQues -> replaceFragments(QnA)
                 R.id.miProfile -> replaceFragments(Profile)
                 R.id.miFeed -> replaceFragments(Feed)
-                R.id.minotif -> replaceFragments(docList)
+                R.id.minotif -> replaceFragments(search)
             }
             true
         }
