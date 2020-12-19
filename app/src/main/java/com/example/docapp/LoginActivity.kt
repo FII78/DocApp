@@ -70,12 +70,13 @@ class LoginActivity : AppCompatActivity() {
 //                        val intent=Intent(this, DoctorActivity::class.java)
 //                        startActivity(intent)
 //                        finish()
-//                    }else{
-                        val intent=Intent(this, ChatActivity::class.java)
-                        startActivity(intent)
-                        finish()
+////                    }else{
+                    ///
+//                        val intent=Intent(this, ChatActivity::class.java)
+//                        startActivity(intent)
+//                        finish()
 //                    }
-                      //  redirectUSer()
+                         redirectUSer()
                 }
                 else
                 {
