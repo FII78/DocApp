@@ -78,10 +78,10 @@ class LoginActivity : AppCompatActivity() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             redirectUSer()}
-                        } else {
+                         else {
                             Toast.makeText(this, "Error Message" + task.exception!!.message.toString(), Toast.LENGTH_SHORT).show()
-                        }
-                    }
+
+                    }}
         }
     }
     private fun redirectUSer () {
