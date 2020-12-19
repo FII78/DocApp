@@ -10,7 +10,7 @@
     android:padding="30sp">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarn"
         android:layout_width="323dp"
         android:layout_height="220dp"
         android:layout_gravity="center"
