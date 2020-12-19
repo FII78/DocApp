@@ -29,14 +29,14 @@ class DocAdapter2(
        var name: TextView = itemView.findViewById(R.id.full_name_search)
 
 
-//       var hours_avail: TextView = itemView.findViewById(R.id.hours_avail)
-//       var experience: TextView = itemView.findViewById(R.id.experience)
-//       var specialization: TextView = itemView.findViewById(R.id.specialization)
+       var hours_avail: TextView = itemView.findViewById(R.id.hours_avail_search)
+       var experience: TextView = itemView.findViewById(R.id.experience_search)
+       var specialization: TextView = itemView.findViewById(R.id.specialization_search)
 
    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view:View=LayoutInflater.from(mContext).inflate(R.layout.user_search_layout,parent,false)
+        val view:View=LayoutInflater.from(mContext).inflate(R.layout.user_search_layout_ui,parent,false)
         return ViewHolder(view)
     }
 
@@ -51,36 +51,58 @@ class DocAdapter2(
         {
 
             holder.name.text = "Dr. ${user!!.fullName}"
-        }
-        else{
+            holder.experience.text = "Experiance: ${user.experience}"
+            holder.hours_avail.text = "Available hrs per week: ${user.hoursAvailablePerWeek}"
+            holder.specialization.text = "Specialized in: ${user.specialization}"
+            holder.itemView.setOnClickListener {
+                val options = arrayOf<CharSequence>("Consult Now", "Visit Profile")
+                val builder: AlertDialog.Builder = AlertDialog.Builder(mContext)
+                builder.setTitle("What do u want to do?")
+                builder.setItems(options) {
+                    dialog, position ->
+                    if (position == 0) {
+                        val intent = Intent(mContext, MessageChatActivity::class.java)
+                        intent.putExtra("visit_id", user.id)
+                        mContext.startActivity(intent)
+                    }
+                    if (position == 1) {
 
-        }
-
-//            holder.experience.text = user.experience
-//            holder.hours_avail.text = user.hoursAvailablePerWeek
-//            holder.specialization.text = user.specialization
-
-    holder.itemView.setOnClickListener {
-        val options = arrayOf<CharSequence>("Consult Now", "Visit Profile")
-        val builder: AlertDialog.Builder = AlertDialog.Builder(mContext)
-        builder.setTitle("What do u want to do?")
-        builder.setItems(options) {
-            dialog, position ->
-            if (position == 0) {
-                val intent = Intent(mContext, MessageChatActivity::class.java)
-                intent.putExtra("visit_id", user.id)
-                mContext.startActivity(intent)
-            }
-            if (position == 1) {
-
+                    }
+                }
+                builder.show()
             }
         }
-        builder.show()
+        else {
+            holder.name.text = user!!.fullName
+            holder.experience.text = "N\\A"
+            holder.hours_avail.text = "N\\A"
+            holder.specialization.text = "N\\A"
+            holder.itemView.setOnClickListener {
+                val options = arrayOf<CharSequence>("Talk to them", "Visit Profile")
+                val builder: AlertDialog.Builder = AlertDialog.Builder(mContext)
+                builder.setTitle("What do u want to do?")
+                builder.setItems(options) { dialog, position ->
+                    if (position == 0) {
+                        val intent = Intent(mContext, MessageChatActivity::class.java)
+                        intent.putExtra("visit_id", user.id)
+                        mContext.startActivity(intent)
+                    }
+                    if (position == 1) {
+
+                    }
+                }
+                builder.show()
+            }
+        }
+
+        }
+
+
+
+
+
+
+
     }
 
 
-
-    }
-
-
-}

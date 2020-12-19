@@ -72,11 +72,11 @@ class LoginActivity : AppCompatActivity() {
 //                        finish()
 ////                    }else{
                     ///
-//                        val intent=Intent(this, ChatActivity::class.java)
-//                        startActivity(intent)
-//                        finish()
+                        val intent=Intent(this, ChatActivity::class.java)
+                        startActivity(intent)
+                        finish()
 //                    }
-                         redirectUSer()
+                        // redirectUSer()
                 }
                 else
                 {

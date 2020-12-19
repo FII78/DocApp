@@ -252,7 +252,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginEnd="158dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/greet"
+        android:text="Welcome"
         android:textColor="#C3121111"
         android:textSize="16sp" />
 

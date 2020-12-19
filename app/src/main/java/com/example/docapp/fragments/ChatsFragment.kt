@@ -9,6 +9,7 @@ import android.widget.EditText
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.docapp.R
+import com.example.docapp.adapters.ChatsListAdapter
 import com.example.docapp.adapters.DocAdapter2
 import com.example.docapp.models.User
 import com.example.docapp.models.chatList
@@ -31,7 +32,7 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class ChatsFragment : Fragment() {
-    private var userAdapter: DocAdapter2? = null
+    private var userAdapter: ChatsListAdapter? = null
     private var mUsers: List<User>? = null
     lateinit var recyclerView: RecyclerView
     private var usersChatList: List<chatList>? = null
@@ -95,7 +96,7 @@ private fun retrieveChatList(){
 
                 }
             }
-            userAdapter=DocAdapter2(context!!,(mUsers as ArrayList<User>))
+            userAdapter=ChatsListAdapter(context!!,(mUsers as ArrayList<User>))
             recyclerView.adapter=userAdapter
             }
             })

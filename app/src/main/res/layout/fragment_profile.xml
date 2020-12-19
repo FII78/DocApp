@@ -224,7 +224,7 @@
             android:layout_marginStart="40dp"
             android:layout_marginTop="15dp"
             android:fontFamily="sans-serif-black"
-            android:text="@string/age"
+            android:text="age"
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/docWeight" />
@@ -273,7 +273,7 @@
             android:layout_height="44dp"
             android:layout_marginTop="68dp"
             android:background="@drawable/grad"
-            android:text="@string/editPro"
+            android:text="editPro"
             android:textColor="@color/design_default_color_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.487"
