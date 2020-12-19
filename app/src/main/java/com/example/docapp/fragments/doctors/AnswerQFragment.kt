@@ -79,7 +79,7 @@ class AnswerQFragment : Fragment(),QnAdapterDoc.Callback {
             Toast.makeText(activity,"clicked", Toast.LENGTH_LONG).show()
 
             var id : String = argQuestions.documentId
-            val answer : String =answerVal.text.toString().trim()
+            val answer : String =answerVal.toString().trim()
 
             if(TextUtils.isEmpty(answer)){
                 answerVal.error = "Please insert your response !!"

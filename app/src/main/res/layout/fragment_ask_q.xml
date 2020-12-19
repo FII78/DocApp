@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragments.patients.AskQFragment"
-    android:background="@drawable/gr_1">
+    android:background="@drawable/gr_2">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -28,6 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:background="@drawable/gr_1"
+            android:id="@+id/linearLayout"
             android:padding="20dp"
             android:paddingLeft="10dp"
             android:paddingTop="10dp"
@@ -41,7 +43,8 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/que"
 
-                android:textSize="18sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <EditText
                 android:id="@+id/getTagUser"
@@ -77,9 +80,9 @@
                 android:id="@+id/asqBtn"
                 android:layout_width="295dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/grad"
+                android:background="@drawable/bg_btn_2"
                 android:text="@string/asqBtnLbl"
-                android:textColor="#FBFBFB" />
+                android:textColor="@color/blue" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
@@ -91,13 +94,12 @@
         android:layout_height="0dp"
         android:layout_marginStart="14dp"
         android:layout_marginLeft="14dp"
-
         android:layout_marginTop="40dp"
         android:layout_marginEnd="14dp"
         android:layout_marginRight="14dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout"
+        app:layout_constraintStart_toEndOf="@+id/cardView"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

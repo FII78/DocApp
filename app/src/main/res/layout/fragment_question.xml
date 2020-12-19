@@ -17,7 +17,7 @@
         android:fontFamily="@font/muli_black"
         android:text="@string/queDesc"
         android:textColor="#1E1D1D"
-        android:textSize="18sp"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"

@@ -25,7 +25,7 @@
             android:id="@+id/profile_msg"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:src="@drawable/ic_profile" />
+            android:src="@drawable/profile" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
             android:textSize="18sp"
             android:layout_marginLeft="26dp"
             android:textColor="@color/white"
-            android:text="username"
+            android:text="John Doe"
             android:textStyle="bold" />
 
     </androidx.appcompat.widget.Toolbar>
@@ -84,6 +84,7 @@
             android:id="@+id/send_image_file_btn"
             android:layout_width="32dp"
             android:layout_height="32dp"
+
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_marginEnd="4dp"

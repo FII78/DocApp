@@ -9,11 +9,22 @@
     android:background="#fff"
     android:padding="30sp">
 
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressBar"
+        android:layout_width="323dp"
+        android:layout_height="220dp"
+        android:layout_gravity="center"
+        android:layout_weight="4"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/docshi" />
+
     <TextView
         android:id="@+id/login_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:fontFamily="@font/muli_black"
         android:text="@string/login"
         android:textAllCaps="true"
@@ -44,7 +55,6 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/userLog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/muli" />
@@ -66,7 +76,6 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/passLog"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/muli"
