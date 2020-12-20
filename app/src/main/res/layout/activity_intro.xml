@@ -8,16 +8,17 @@
 
     <ImageView
         android:id="@+id/spalshimg"
-        android:layout_width="wrap_content"
-        android:layout_height="900dp"
+        android:layout_width="677dp"
+        android:layout_height="1025dp"
         android:contentDescription="TODO"
         android:scaleType="centerCrop"
-        android:src="@drawable/ars"
+        android:src="@drawable/bg_btn_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.433"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0" />
+        app:layout_constraintVertical_bias="0.438" />
 
     <ImageView
         android:id="@+id/logo"
