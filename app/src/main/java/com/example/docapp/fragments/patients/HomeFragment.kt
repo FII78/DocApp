@@ -78,7 +78,7 @@ class HomeFragment : Fragment() {
             replaceFragments(fraG)
         }
 
-        view.msgCardDoc.setOnClickListener{
+        view.msgCard.setOnClickListener{
 //            val fraG = ChatsFragment()
 //            replaceFragments(fraG)
             val intent= Intent(activity, ChatActivity::class.java)
