@@ -54,6 +54,7 @@ return if(position==1)
 
 
             holder.show_text_message!!.text=chat.message
+
         if(position==mChatList.size-1){
             holder.text_seen!!.text="seen"
 

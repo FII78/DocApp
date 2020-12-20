@@ -23,7 +23,7 @@ class ChatsListAdapter (
 
         class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
 
-            var name: TextView = itemView.findViewById(R.id.full_name_search)
+            var name: TextView = itemView.findViewById(R.id.full_name_search_U)
 
 
 //       var hours_avail: TextView = itemView.findViewById(R.id.hours_avail)
@@ -44,14 +44,19 @@ class ChatsListAdapter (
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
             val user: User =mUsers[position]
 
-            if(user!!.role=="doctor")
-            {
 
-                holder.name.text = "Dr. ${user!!.fullName}"
+            if(user.role=="doctor")
+            {
+                val nameh="Dr ${user.fullName}"
+                holder.name.text = nameh
+
             }
-            else{
-                holder.name.text = user!!.fullName
-            }
+            else {
+                holder.name.text = user.fullName
+
+
+                }
+
 
 //            holder.experience.text = user.experience
 //            holder.hours_avail.text = user.hoursAvailablePerWeek

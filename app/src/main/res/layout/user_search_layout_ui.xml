@@ -14,7 +14,7 @@
 
     card_view:cardBackgroundColor="#cc2193b0"
     card_view:cardElevation="18dp">
-    >
+
 
     <LinearLayout
         android:layout_width="match_parent"
