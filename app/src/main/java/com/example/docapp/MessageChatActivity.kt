@@ -42,8 +42,8 @@ lateinit var recycler_view_msg:RecyclerView
 
         intent=intent
         userIdVistit=intent.getStringExtra("visit_id")
-        Toast.makeText(this ,userIdVistit.toString(),
-                Toast.LENGTH_LONG).show()
+//        Toast.makeText(this ,userIdVistit.toString(),
+//                Toast.LENGTH_LONG).show()
         firebaseUser=FirebaseAuth.getInstance().currentUser
 
         recycler_view_msg=findViewById(R.id.recycler_view_msg)

@@ -9,25 +9,27 @@
         android:id="@+id/splashImg"
         android:layout_width="wrap_content"
         android:layout_height="900dp"
-        android:src="@color/white"
+        android:background="@color/blue"
         app:layout_constraintVertical_bias="0"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="TODO" />
+        android:contentDescription="TODO"
+        />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="597dp"
-        android:layout_height="926dp"
+        android:layout_width="188dp"
+        android:layout_height="183dp"
         android:contentDescription="TODO"
-        android:src="@drawable/some1"
+        android:src="@drawable/inverse_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.814" />
+        app:layout_constraintVertical_bias="0.178"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
