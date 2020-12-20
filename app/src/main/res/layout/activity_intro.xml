@@ -12,7 +12,7 @@
         android:layout_height="900dp"
         android:contentDescription="TODO"
         android:scaleType="centerCrop"
-        android:src="@drawable/yo1"
+        android:src="@drawable/ars"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
