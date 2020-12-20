@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ChatActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_chat"
             android:theme="@style/Theme.DocApp.NoActionBar">
 
@@ -29,13 +29,7 @@
         <activity android:name=".doctors.doctorsSignupActivity" />
         <activity android:name=".signupActivity" />
         <activity android:name=".MessageChatActivity" />
-        <activity android:name=".LoginActivity">
-
-        </activity>
-        <activity android:name=".patients.UserActivity" />
-
         <meta-data
-            android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
 
