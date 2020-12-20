@@ -255,6 +255,19 @@
         android:text="Welcome"
         android:textColor="#C3121111"
         android:textSize="16sp" />
-
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/progressBar"
+        android:layout_width="321dp"
+        android:layout_height="118dp"
+        android:layout_alignTop="@+id/editTextTextPersonName"
+        android:layout_gravity="center"
+        android:layout_marginStart="-149dp"
+        android:layout_marginTop="-153dp"
+        android:layout_toEndOf="@+id/textView2"
+        android:layout_weight="4"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/pat" />
 
 </RelativeLayout>

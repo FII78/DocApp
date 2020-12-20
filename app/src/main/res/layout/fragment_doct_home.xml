@@ -257,7 +257,7 @@
         android:textSize="16sp" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/progressBar"
+        android:id="@+id/homedoc"
         android:layout_width="321dp"
         android:layout_height="118dp"
         android:layout_alignTop="@+id/editTextTextPersonName"
