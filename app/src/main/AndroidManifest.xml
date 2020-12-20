@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.DocApp">
-        <activity android:name=".IntroActivity"></activity>
+        <activity android:name=".ChatActivity"></activity>
         <activity
-            android:name=".ChatActivity"
+            android:name=".LoginActivity"
             android:label="@string/title_activity_chat"
             android:theme="@style/Theme.DocApp.NoActionBar">
 
@@ -23,7 +23,7 @@
         <activity android:name=".doctors.doctorsSignupActivity" />
         <activity android:name=".signupActivity" />
         <activity android:name=".MessageChatActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".IntroActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
