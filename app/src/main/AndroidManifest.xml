@@ -29,8 +29,7 @@
         <activity android:name=".doctors.doctorsSignupActivity" />
         <activity android:name=".signupActivity" />
         <activity android:name=".MessageChatActivity" />
-        <meta-data
-            android:resource="@array/preloaded_fonts" />
+
     </application>
 
 </manifest>
