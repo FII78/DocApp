@@ -1,35 +1,34 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".IntroActivity">
+
     <ImageView
-        android:id="@+id/splashImg"
+        android:id="@+id/spalshimg"
         android:layout_width="wrap_content"
         android:layout_height="900dp"
-        android:background="@color/blue"
-        app:layout_constraintVertical_bias="0"
+        android:contentDescription="TODO"
         android:scaleType="centerCrop"
+        android:src="@drawable/bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="TODO"
-        />
+        app:layout_constraintVertical_bias="0" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="188dp"
-        android:layout_height="183dp"
+        android:layout_width="155dp"
+        android:layout_height="167dp"
         android:contentDescription="TODO"
         android:src="@drawable/inverse_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.178"
-        />
+        app:layout_constraintVertical_bias=".1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
