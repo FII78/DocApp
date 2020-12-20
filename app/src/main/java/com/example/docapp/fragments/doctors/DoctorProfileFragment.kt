@@ -45,13 +45,13 @@ class DoctorProfileFragment : Fragment() {
         // Inflate the layout for this fragment
 
        val view:View =inflater.inflate(R.layout.fragment_doctor_profile, container, false)
-        view.btnOutDoc.setOnClickListener{
+        view.docbtnOut.setOnClickListener{
             FirebaseAuth.getInstance().signOut();
             startActivity(Intent(activity, LoginActivity::class.java))
         }
-        view.editMobDoc.setOnClickListener{
-            openMobFragment()
-        }
+//        view.editMobDoc.setOnClickListener{
+//            openMobFragment()
+//        }
         getUSerDetails()
         return view
     }
@@ -83,13 +83,12 @@ class DoctorProfileFragment : Fragment() {
             .addOnSuccessListener {
                     document ->
                 val  user=document.toObject(User::class.java)!!
-                userFullNameDoc.text=user.fullName.capitalize()
-                userEmailDoc.text= user.email
-                userNameDoc.text= "Username : ${ user.userName.capitalize() }"
-                userMobDoc.text = user.mobile
-                docExperience.text = user.experience
-                docSpec.text = user.specialization
-                docHour.text = user.hoursAvailablePerWeek
+                type.text = user.specialization
+                docMob.text = user.mobile
+                docEmail.text = user.email
+                docExp.text = "${user.experience} + years"
+                docAvlHVal.text = user.hoursAvailablePerWeek
+
 
 
 

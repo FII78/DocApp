@@ -51,7 +51,7 @@ class AnswerQFragment : Fragment(),QnAdapterDoc.Callback {
         // Inflate the layout for this fragment
 
         val view:View = inflater.inflate(R.layout.fragment_answer_q, container, false)
-        Toast.makeText(activity,"${argQuestions.documentId}",Toast.LENGTH_LONG).show()
+       // Toast.makeText(activity,"${argQuestions.documentId}",Toast.LENGTH_LONG).show()
         view.respBtn.setOnClickListener{
             update()
         }
@@ -76,13 +76,13 @@ class AnswerQFragment : Fragment(),QnAdapterDoc.Callback {
     // update data
     private fun update(){
        // respBtn.setOnClickListener{
-            Toast.makeText(activity,"clicked", Toast.LENGTH_LONG).show()
+            //Toast.makeText(activity,"clicked", Toast.LENGTH_LONG).show()
 
             var id : String = argQuestions.documentId
-            val answer : String =answerVal.toString().trim()
+            val answer : String =answerQ.toString().trim()
 
             if(TextUtils.isEmpty(answer)){
-                answerVal.error = "Please insert your response !!"
+                answerQ.error = "Please insert your response !!"
             }else{
                 val ansData = AnsList(answer,ansdBy)
                 val list : ArrayList<AnsList> = arrayListOf();

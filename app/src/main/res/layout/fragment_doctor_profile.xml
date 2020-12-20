@@ -37,7 +37,7 @@
             app:srcCompat="@drawable/profile_3" />
 
         <TextView
-            android:id="@+id/userFullName"
+            android:id="@+id/docFullName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="64dp"
@@ -93,12 +93,12 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userBloodT" />
+            app:layout_constraintTop_toBottomOf="@+id/docExp" />
 
         <TextView
-            android:id="@+id/userEmail"
-            android:layout_width="100dp"
-            android:layout_height="17dp"
+            android:id="@+id/docEmail"
+            android:layout_width="102dp"
+            android:layout_height="23dp"
             android:layout_marginTop="25dp"
             android:text="lol"
             android:textSize="16sp"
@@ -118,10 +118,10 @@
             android:textColor="#1E1D1D"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/docEmail" />
 
         <TextView
-            android:id="@+id/userMob"
+            android:id="@+id/docMob"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="25dp"
@@ -130,7 +130,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.323"
             app:layout_constraintStart_toEndOf="@+id/DocproMobileLbl"
-            app:layout_constraintTop_toBottomOf="@+id/userEmail" />
+            app:layout_constraintTop_toBottomOf="@+id/docEmail" />
 
         <TextView
             android:id="@+id/userHeight"
@@ -157,7 +157,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
-            android:id="@+id/userBloodT"
+            android:id="@+id/docExp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="56dp"
@@ -179,7 +179,7 @@
             android:textSize="18sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.463"
-            app:layout_constraintStart_toEndOf="@+id/userBloodT"
+            app:layout_constraintStart_toEndOf="@+id/docExp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -204,7 +204,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.305"
             app:layout_constraintStart_toEndOf="@+id/docProAvailHours"
-            app:layout_constraintTop_toBottomOf="@+id/userMob" />
+            app:layout_constraintTop_toBottomOf="@+id/docMob" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -47,12 +47,12 @@ class ProfileFragment : Fragment() {
             FirebaseAuth.getInstance().signOut();
             startActivity(Intent(activity,LoginActivity::class.java))
         }
-        view.editProfile.setOnClickListener{
-                openEditFragment()
-        }
-        view.editMob.setOnClickListener{
-            openMobFragment()
-        }
+//        view.editProfile.setOnClickListener{
+//                openEditFragment()
+//        }
+//        view.editMob.setOnClickListener{
+//            openMobFragment()
+//        }
         return view
     }
 

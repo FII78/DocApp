@@ -1,5 +1,6 @@
 package com.example.docapp.fragments.patients
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.FragmentActivity
+import com.example.docapp.ChatActivity
 import com.example.docapp.fragments.patients.DocListFragment
 import com.example.docapp.R
 import com.example.docapp.UserInfo
@@ -23,6 +25,7 @@ import com.example.docapp.models.User
 //import com.example.docapp.patients.health_feedFragment
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlinx.android.synthetic.main.fragment_doct_home.view.*
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.view.*
 
@@ -75,11 +78,11 @@ class HomeFragment : Fragment() {
             replaceFragments(fraG)
         }
 
-        view.msgCard.setOnClickListener{
-            Log.d("messages", "Selected")
-           // useNmeLbl.text="445"
-            val fraG = ChatsFragment()
-            replaceFragments(fraG)
+        view.msgCardDoc.setOnClickListener{
+//            val fraG = ChatsFragment()
+//            replaceFragments(fraG)
+            val intent= Intent(activity, ChatActivity::class.java)
+            startActivity(intent)
         }
         getUSerDetails()
         return  view
